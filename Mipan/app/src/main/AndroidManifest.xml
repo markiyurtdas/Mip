@@ -18,6 +18,7 @@
 
         <activity android:name=".activities.SignUP"></activity>
         <activity android:name=".activities.Chat"></activity>
+        <activity android:name=".activities.ChatList"></activity>
 
         <activity android:name=".safe.Control"></activity>
 
