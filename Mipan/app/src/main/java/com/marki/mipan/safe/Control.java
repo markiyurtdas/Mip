@@ -14,6 +14,7 @@ import com.marki.mipan.model.AnswerList;
 import com.marki.mipan.model.Applies;
 import com.marki.mipan.model.Company;
 import com.marki.mipan.model.Event;
+import com.marki.mipan.model.FoodMenuWeek;
 import com.marki.mipan.model.JobAds;
 import com.marki.mipan.model.Member;
 import com.marki.mipan.model.Survey;
@@ -35,6 +36,8 @@ public class Control extends AppCompatActivity {
     public static ArrayList<Survey> surveyList = new ArrayList<>();
     public static ArrayList<Member> memberList = new ArrayList<>();
     public static ArrayList<String> messageUsers = new ArrayList<>();
+    public static ArrayList<FoodMenuWeek> foodMenuList = new ArrayList<>();
+
     public static List[][] messageMessages ;
 
 
@@ -46,14 +49,7 @@ public class Control extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_control);
-<<<<<<< HEAD
-        //getEvents();
-        getJobAds();
-        getApplies();
-        getCompanies();
-        getAnswerList();
-=======
->>>>>>> 7ee1bcf422302e5dbfebebf36da43b56a5251709
+
 
 
         //getEvents();
@@ -69,6 +65,28 @@ public class Control extends AppCompatActivity {
 
 
     }
+
+    public void getFoodMenu(){
+        member.dbRef.child("mip")
+                .child("food_menu_week")
+                .addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                        for (DataSnapshot postSnapShot : dataSnapshot.getChildren()) {
+                            FoodMenuWeek myj = postSnapShot.getValue(FoodMenuWeek.class);
+                            foodMenuList.add(myj);
+                        }
+                        System.out.println("bbc" + foodMenuList.toString());
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                    }
+                });
+
+    }
+
     public void getEvents(){
 
         member.dbRef.child("mip")
