@@ -5,6 +5,15 @@ import java.util.List;
 
 public class Event {
     private long event_id;
+    private String photoUrl;
+
+    public String getPhotoUrl() {
+        return photoUrl;
+    }
+
+    public void setPhotoUrl(String photoUrl) {
+        this.photoUrl = photoUrl;
+    }
 
     public long getEvent_id() {
         return event_id;
