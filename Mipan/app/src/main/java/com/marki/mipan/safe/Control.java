@@ -3,16 +3,22 @@ package com.marki.mipan.safe;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Looper;
 
+import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.ValueEventListener;
 import com.google.gson.Gson;
 import com.marki.mipan.R;
+import com.marki.mipan.activities.Chat;
 import com.marki.mipan.model.Event;
 import com.marki.mipan.model.JobAds;
 import com.marki.mipan.model.Member;
+import com.marki.mipan.model.Message;
 
 import org.json.JSONObject;
 
@@ -25,8 +31,8 @@ import java.util.Set;
 public class Control extends AppCompatActivity {
     public static ArrayList<Event> eventList = new ArrayList<>();
     public static ArrayList<JobAds> jobList = new ArrayList<>();
-    public static ArrayList<String> messageUsers = new ArrayList<>();
-    public static List[][] messageMessages ;
+
+
 
 
     Member member = Member.getInstance();
@@ -35,12 +41,14 @@ public class Control extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_control);
 
-        getEvents();
-        getJobAds();
+//        getEvents();
+//        getJobAds();
 
 
 
 
+
+        startActivity(new Intent(Control.this, Chat.class));
     }
 
     public void getEvents(){
@@ -114,34 +122,33 @@ public class Control extends AppCompatActivity {
     }
 
 
-
-    public void getUserMessages(){
-        member.dbRef.child("message")
-                .child(member.getUsername())
-                .child("receive")
-                .addListenerForSingleValueEvent(new ValueEventListener() {
-                    @Override
-                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                        if (dataSnapshot.hasChildren()){
-                            HashMap<String,Object> myHash = (HashMap<String, Object>) dataSnapshot.getValue();
-                            Set<String> str = myHash.keySet();
-
-                            for (String string:str){
-
-                                //string mehmet
-                                messageUsers.add(string);
-                                HashMap<String,Object> mHash = (HashMap<String, Object>) myHash.get(string);
-                                int index = messageUsers.indexOf(string);
-
-                            }
-                        }
-                    }
-
-                    @Override
-                    public void onCancelled(@NonNull DatabaseError databaseError) {
-
-                    }
-                });
-    }
+//    public void getUserMessages(){
+//        member.dbRef.child("message")
+//                .child(member.getUsername())
+//                .child("receive")
+//                .addListenerForSingleValueEvent(new ValueEventListener() {
+//                    @Override
+//                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+//                        if (dataSnapshot.hasChildren()){
+//                            HashMap<String,Object> myHash = (HashMap<String, Object>) dataSnapshot.getValue();
+//                            Set<String> str = myHash.keySet();
+//
+//                            for (String string:str){
+//
+//                                //string mehmet
+//                                messageUsers.add(string);
+//                                HashMap<String,Object> mHash = (HashMap<String, Object>) myHash.get(string);
+//                                int index = messageUsers.indexOf(string);
+//
+//                            }
+//                        }
+//                    }
+//
+//                    @Override
+//                    public void onCancelled(@NonNull DatabaseError databaseError) {
+//
+//                    }
+//                });
+//    }
 }
 
