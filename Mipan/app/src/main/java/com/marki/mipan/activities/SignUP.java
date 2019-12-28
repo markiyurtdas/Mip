@@ -22,7 +22,10 @@ public class SignUP extends AppCompatActivity {
 
     EditText etUsername;
     EditText etPassword;
+    EditText etRePassword;
+    EditText etFullname;
     Button btnSignup;
+    Button btnSetBirthday;
     Member member = Member.getInstance();
 
     @Override
@@ -36,8 +39,11 @@ public class SignUP extends AppCompatActivity {
 
     public void setUpUI(){
         etPassword = findViewById(R.id.et_password);
+        etRePassword = findViewById(R.id.et_re_password);
         etUsername = findViewById(R.id.et_username);
+        etFullname = findViewById(R.id.et_fullname);
         btnSignup = findViewById(R.id.btn_signup);
+        btnSetBirthday = findViewById(R.id.btn_set_birthday);
 
 
         btnSignup.setOnClickListener(new View.OnClickListener() {

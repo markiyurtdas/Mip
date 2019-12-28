@@ -11,4 +11,11 @@
     <string name="enter_username">Enter Username</string>
     <string name="enter_passwords">Enter Password</string>
     <string name="signup">Signup</string>
+    <string name="enter_again_passwords">Enter password again</string>
+    <string name="set_birthday">Set Birthday</string>
+    <string name="fullname">Fullname</string>
+    <string name="email">Email</string>
+    <string name="male">Male</string>
+    <string name="female">Female</string>
+    <string name="other">Other</string>
 </resources>
