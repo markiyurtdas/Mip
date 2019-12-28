@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 
+import com.github.loadingview.LoadingDialog;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.analytics.FirebaseAnalytics;
@@ -17,10 +18,13 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.iid.FirebaseInstanceId;
 import com.google.firebase.iid.InstanceIdResult;
-import com.marki.mipan.activities.SignUP;
+import com.marki.mipan.activities.Chat;
 import com.marki.mipan.model.Member;
+<<<<<<< HEAD
+=======
 import com.marki.mipan.safe.Control;
 import com.marki.mipan.ui.FragmentMainActivity;
+>>>>>>> 07e08bf965a30846846231ea19cf9f8a57f39378
 
 public class StartActivity extends AppCompatActivity {
     private FirebaseAnalytics mFirebaseAnalytics;
@@ -33,7 +37,12 @@ public class StartActivity extends AppCompatActivity {
         setContentView(R.layout.activity_start);
 
 
-
+        LoadingDialog dialog = LoadingDialog.Companion.get(this);
+        //noinspection KotlinInternalInJava
+        dialog.getLoadingView$loadingview_release().setDuration(90);
+        //dialog.hide();
+        // later dismiss
+        //dialog.show();
 
 
         // Obtain the FirebaseAnalytics instance.
@@ -52,7 +61,7 @@ public class StartActivity extends AppCompatActivity {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                         if (dataSnapshot.hasChildren()){
-                            System.out.println(dataSnapshot.getValue().toString());
+                          //  System.out.println(dataSnapshot.getValue().toString());
                         }
                     }
 
@@ -98,7 +107,11 @@ public class StartActivity extends AppCompatActivity {
                 });
 
 
+<<<<<<< HEAD
+        startActivity(new Intent(StartActivity.this, Chat.class));
+=======
         startActivity(new Intent(StartActivity.this, Control.class));
+>>>>>>> 07e08bf965a30846846231ea19cf9f8a57f39378
 //        startActivity(new Intent(StartActivity.this, FragmentMainActivity.class));
     }
 }
