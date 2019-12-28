@@ -164,7 +164,7 @@ public class SignUP extends AppCompatActivity {
 
 
 
-        jobAds.dbRef.child("mip")
+        survey.dbRef.child("mip")
                 .child("survey")
                 .child(survey.getSurvey_id())
                 .setValue(sendUser);
@@ -182,7 +182,7 @@ public class SignUP extends AppCompatActivity {
 
 
 
-        jobAds.dbRef.child("mip")
+        company.dbRef.child("mip")
                 .child("company")
                 .child(company.getCompany_id())
                 .setValue(sendUser);
@@ -200,7 +200,7 @@ public class SignUP extends AppCompatActivity {
 
 
 
-        jobAds.dbRef.child("mip")
+        applies.dbRef.child("mip")
                 .child("applies")
                 .child(applies.getApply_id())
                 .setValue(sendUser);
