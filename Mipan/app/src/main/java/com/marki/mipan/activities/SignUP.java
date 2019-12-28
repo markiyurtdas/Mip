@@ -8,7 +8,13 @@ import android.widget.Button;
 import android.widget.EditText;
 
 import com.marki.mipan.R;
+import com.marki.mipan.model.Applies;
+import com.marki.mipan.model.Company;
+import com.marki.mipan.model.Event;
+import com.marki.mipan.model.Guest;
+import com.marki.mipan.model.JobAds;
 import com.marki.mipan.model.Member;
+import com.marki.mipan.model.Survey;
 
 import java.util.HashMap;
 
@@ -16,7 +22,10 @@ public class SignUP extends AppCompatActivity {
 
     EditText etUsername;
     EditText etPassword;
+    EditText etRePassword;
+    EditText etFullname;
     Button btnSignup;
+    Button btnSetBirthday;
     Member member = Member.getInstance();
 
     @Override
@@ -30,8 +39,11 @@ public class SignUP extends AppCompatActivity {
 
     public void setUpUI(){
         etPassword = findViewById(R.id.et_password);
+        etRePassword = findViewById(R.id.et_re_password);
         etUsername = findViewById(R.id.et_username);
+        etFullname = findViewById(R.id.et_fullname);
         btnSignup = findViewById(R.id.btn_signup);
+        btnSetBirthday = findViewById(R.id.btn_set_birthday);
 
 
         btnSignup.setOnClickListener(new View.OnClickListener() {
@@ -76,7 +88,123 @@ public class SignUP extends AppCompatActivity {
                 .setValue(sendUser);
 
     }
+
+    private void sendGuestToFB() {
+        Guest guest = new Guest();
+        HashMap<String, Object> sendUser = new HashMap<>();
+        sendUser.put("create_date",guest.getCreate_date());
+        sendUser.put("has_username",guest.isHas_username());
+        sendUser.put("is_guest",guest.isIs_guest());
+        sendUser.put("open_date",guest.getOpen_date());
+        sendUser.put("type",guest.getType());
+        sendUser.put("username",guest.getUsername());
+
+
+
+
+
+        member.dbRef.child("mip")
+                .child("guest")
+                .child(guest.getUsername())
+                .setValue(sendUser);
+    }
+    private void sendEventToFB() {
+        Event event = new Event();
+        HashMap<String, Object> sendUser = new HashMap<>();
+        sendUser.put("date",event.getDate());
+        sendUser.put("description",event.getDescription());
+        sendUser.put("title",event.getTitle());
+        sendUser.put("loc_lon",event.getLocLon());
+        sendUser.put("loc_lat",event.getLocLat());
+        sendUser.put("users",event.getUsers());
+        sendUser.put("event_id",event.getEvent_id());
+
+        HashMap<String,Object> hashUpdate = new HashMap<>();
+        hashUpdate.put(member.getUsername(),member.getUsername());
+
+
+
+        member.dbRef.child("mip")
+                .child("event")
+                .child(String.valueOf(event.getEvent_id()))
+                .child("users")
+                .updateChildren(hashUpdate);
+    }
+    private void sendJobAdsToFB() {
+        JobAds jobAds = new JobAds();
+        HashMap<String, Object> sendUser = new HashMap<>();
+        sendUser.put("company",jobAds.getCompany());
+        sendUser.put("company_mail",jobAds.getCompany_mail());
+        sendUser.put("created_date",jobAds.getCreated_date());
+        sendUser.put("description",jobAds.getDescription());
+        sendUser.put("end_date",jobAds.getEnd_date());
+        sendUser.put("photo_url",jobAds.getPhoto_url());
+        sendUser.put("title",jobAds.getTitle());
+        sendUser.put("type",jobAds.getType());
+
+
+
+
+
+        member.dbRef.child("mip")
+                .child("job_ad")
+                .child(String.valueOf(jobAds.getJob_id()))
+                .setValue(sendUser);
+    }
+    private void sendSurveyToFB(long coinPrice) {
+        Survey survey = new Survey();
+        HashMap<String, Object> sendUser = new HashMap<>();
+        sendUser.put("survey_id",survey.getSurvey_id());
+        sendUser.put("company_mail",survey.getCreated_date());
+        sendUser.put("created_date",survey.getCreator_username());
+        sendUser.put("description",survey.getDescription());
+        sendUser.put("end_date",survey.getEnd_date());
+        sendUser.put("mip_coin",String.valueOf(coinPrice));
+        sendUser.put("questions",survey.getQuestions());
+        sendUser.put("title",survey.getTitle());
+
+
+
+
+
+        member.dbRef.child("mip")
+                .child("survey")
+                .child(String.valueOf(survey.getSurvey_id()))
+                .setValue(sendUser);
+    }
+    private void sendCompanyToFB() {
+        Company company = new Company();
+        HashMap<String, Object> sendUser = new HashMap<>();
+        sendUser.put("address",company.getAddress());
+        sendUser.put("company_name",company.getCompany_name());
+        sendUser.put("job_list",company.getJob_list());
+        sendUser.put("location",company.getLocation());
+        sendUser.put("photos",company.getPhotos());
+
+
+
+
+
+        member.dbRef.child("mip")
+                .child("company")
+                .child(String.valueOf(company.getCompany_id()))
+                .setValue(sendUser);
+    }
+    private void sendAppliesToFB() {
+        Applies applies = new Applies();
+        HashMap<String, Object> sendUser = new HashMap<>();
+
+
+
+
+
+        member.dbRef.child("mip")
+                .child("applies")
+                .child(String.valueOf(applies.getApply_id()))
+                .setValue(sendUser);
+    }
 }
+
 
 
 

@@ -20,6 +20,11 @@ import com.google.firebase.iid.FirebaseInstanceId;
 import com.google.firebase.iid.InstanceIdResult;
 import com.marki.mipan.activities.Chat;
 import com.marki.mipan.model.Member;
+<<<<<<< HEAD
+=======
+import com.marki.mipan.safe.Control;
+import com.marki.mipan.ui.FragmentMainActivity;
+>>>>>>> 07e08bf965a30846846231ea19cf9f8a57f39378
 
 public class StartActivity extends AppCompatActivity {
     private FirebaseAnalytics mFirebaseAnalytics;
@@ -102,7 +107,11 @@ public class StartActivity extends AppCompatActivity {
                 });
 
 
+<<<<<<< HEAD
         startActivity(new Intent(StartActivity.this, Chat.class));
+=======
+        startActivity(new Intent(StartActivity.this, Control.class));
+>>>>>>> 07e08bf965a30846846231ea19cf9f8a57f39378
 //        startActivity(new Intent(StartActivity.this, FragmentMainActivity.class));
     }
 }
