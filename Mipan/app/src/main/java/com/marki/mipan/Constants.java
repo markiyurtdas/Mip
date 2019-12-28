@@ -1,6 +1,11 @@
 package com.marki.mipan;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Constants {
+
+    public static List<String> getTypes=new ArrayList<>();
 
     /*
     *
