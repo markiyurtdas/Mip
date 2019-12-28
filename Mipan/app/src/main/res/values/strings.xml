@@ -8,4 +8,7 @@
     <string name="title_jobs">Jobs</string>
     <string name="title_profil">Profil</string>
     <string name="title_events">Events</string>
+    <string name="enter_username">Enter Username</string>
+    <string name="enter_passwords">Enter Password</string>
+    <string name="signup">Signup</string>
 </resources>
