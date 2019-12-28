@@ -1,3 +1,11 @@
 <resources>
     <string name="app_name">Mipan</string>
+    <string name="title_activity_main">MainActivity</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
+    <string name="title_home">Home</string>
+    <string name="title_contact">Contact</string>
+    <string name="title_jobs">Jobs</string>
+    <string name="title_profil">Profil</string>
+    <string name="title_events">Events</string>
 </resources>

@@ -1,4 +1,4 @@
-package com.marki.mipan;
+package com.marki.mipan.activities;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
@@ -18,7 +18,9 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.iid.FirebaseInstanceId;
 import com.google.firebase.iid.InstanceIdResult;
 
-public class MainActivity extends AppCompatActivity {
+import com.marki.mipan.R;
+
+public class SurveyDetail extends AppCompatActivity {
 
 
     private FirebaseAnalytics mFirebaseAnalytics;
@@ -27,7 +29,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_survey_detail);
 
 
 
@@ -79,5 +81,5 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-    }
+ }
 }
