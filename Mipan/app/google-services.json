@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "608267089163",
+    "firebase_url": "https://mipan-836c4.firebaseio.com",
+    "project_id": "mipan-836c4",
+    "storage_bucket": "mipan-836c4.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:608267089163:android:4ab72517e19fccee601e0e",
+        "android_client_info": {
+          "package_name": "com.marki.mipan"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "608267089163-vthfbs10h29iu21jt05q5r172m6m3s5m.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.marki.mipan",
+            "certificate_hash": "58391b8aa1f79d25a95da93e606ecbba376c4a66"
+          }
+        },
+        {
+          "client_id": "608267089163-5fao0cj9phjrti4tcaooqpr5irpmn7d8.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAlFHsOJ7a3OfkR3WEF5F9osFSMBvb7Plc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "608267089163-5fao0cj9phjrti4tcaooqpr5irpmn7d8.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
