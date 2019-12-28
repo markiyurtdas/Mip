@@ -43,11 +43,11 @@ public class Survey {
         this.mip_coin = mip_coin;
     }
 
-    public Long[] getQuestions() {
+    public List<Question> getQuestions() {
         return questions;
     }
 
-    public void setQuestions(Long[] questions) {
+    public void setQuestions(List<Question> questions) {
         this.questions = questions;
     }
 

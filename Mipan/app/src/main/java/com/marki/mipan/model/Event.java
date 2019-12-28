@@ -28,7 +28,7 @@ public class Event {
 
     private String title;
     private double[] location;
-    private List<Member> users;
+    private List<String> users;
 
     public Event() {
     }
@@ -76,11 +76,11 @@ public class Event {
         this.location = location;
     }
 
-    public List<Member> getUsers() {
+    public List<String> getUsers() {
         return users;
     }
 
-    public void setUsers(List<Member> users) {
+    public void setUsers(List<String> users) {
         this.users = users;
     }
 //    private long
