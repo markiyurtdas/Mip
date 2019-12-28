@@ -11,6 +11,7 @@ import com.google.firebase.database.ValueEventListener;
 import com.google.gson.Gson;
 import com.marki.mipan.R;
 import com.marki.mipan.model.Event;
+import com.marki.mipan.model.JobAds;
 import com.marki.mipan.model.Member;
 
 import org.json.JSONObject;
@@ -22,7 +23,16 @@ import java.util.List;
 import java.util.Set;
 
 public class Control extends AppCompatActivity {
-    public static ArrayList<Event> eventList = new ArrayList<Event>();
+    public static ArrayList<Event> eventList = new ArrayList<>();
+<<<<<<< HEAD
+    public static ArrayList<JobAds> jobList = new ArrayList<>();
+    public static ArrayList<String> messageUsers = new ArrayList<>();
+    public static List[][] messageMessages ;
+=======
+    public static ArrayList<String> messageUsers = new ArrayList<>();
+    public static ArrayList<HashMap> messageMessages = new ArrayList<>() ;
+>>>>>>> 4af69cadb54074ce8cca8f4d51803f8931e35741
+
     Member member = Member.getInstance();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,6 +40,7 @@ public class Control extends AppCompatActivity {
         setContentView(R.layout.activity_control);
 
         getEvents();
+        getJobAds();
 
 
 
@@ -84,4 +95,66 @@ public class Control extends AppCompatActivity {
                 });
 
     }
+<<<<<<< HEAD
+    public void getJobAds() {
+
+
+        member.dbRef.child("mip")
+                .child("job_ad")
+                .addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                        for (DataSnapshot postSnapShot : dataSnapshot.getChildren()) {
+                            JobAds myj = postSnapShot.getValue(JobAds.class);
+                            System.out.println("bbc"+myj.toString());
+                        }
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                    }
+                });
+
+    }
+=======
+
+
+
+>>>>>>> 4af69cadb54074ce8cca8f4d51803f8931e35741
+    public void getUserMessages(){
+        member.dbRef.child("message")
+                .child(member.getUsername())
+                .child("receive")
+                .addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                        if (dataSnapshot.hasChildren()){
+                            HashMap<String,Object> myHash = (HashMap<String, Object>) dataSnapshot.getValue();
+                            Set<String> str = myHash.keySet();
+
+                            for (String string:str){
+<<<<<<< HEAD
+
+=======
+                                //string mehmet
+                                messageUsers.add(string);
+                                HashMap<String,Object> mHash = (HashMap<String, Object>) myHash.get(string);
+                                int index = messageUsers.indexOf(string);
+>>>>>>> 4af69cadb54074ce8cca8f4d51803f8931e35741
+
+                            }
+                        }
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                    }
+                });
+    }
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> 4af69cadb54074ce8cca8f4d51803f8931e35741
