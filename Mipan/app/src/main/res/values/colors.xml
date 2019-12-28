@@ -4,5 +4,11 @@
     <color name="colorPrimaryLigth">#86B9BA</color>
     <color name="colorPrimaryDark">#004289</color>
     <color name="colorAccent">#D81B60</color>
+
+    <color name="startblue">#105299</color>
+    <color name="endblue">#004289</color>
+    <color name="graylight">#ffffff</color>
+
     <color name="colorRed">#D10E3C</color>
+
 </resources>

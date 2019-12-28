@@ -24,9 +24,14 @@ import java.util.Set;
 
 public class Control extends AppCompatActivity {
     public static ArrayList<Event> eventList = new ArrayList<>();
+<<<<<<< HEAD
     public static ArrayList<JobAds> jobList = new ArrayList<>();
     public static ArrayList<String> messageUsers = new ArrayList<>();
     public static List[][] messageMessages ;
+=======
+    public static ArrayList<String> messageUsers = new ArrayList<>();
+    public static ArrayList<HashMap> messageMessages = new ArrayList<>() ;
+>>>>>>> 4af69cadb54074ce8cca8f4d51803f8931e35741
 
     Member member = Member.getInstance();
     @Override
@@ -90,6 +95,7 @@ public class Control extends AppCompatActivity {
                 });
 
     }
+<<<<<<< HEAD
     public void getJobAds() {
 
 
@@ -111,6 +117,11 @@ public class Control extends AppCompatActivity {
                 });
 
     }
+=======
+
+
+
+>>>>>>> 4af69cadb54074ce8cca8f4d51803f8931e35741
     public void getUserMessages(){
         member.dbRef.child("message")
                 .child(member.getUsername())
@@ -123,7 +134,14 @@ public class Control extends AppCompatActivity {
                             Set<String> str = myHash.keySet();
 
                             for (String string:str){
+<<<<<<< HEAD
 
+=======
+                                //string mehmet
+                                messageUsers.add(string);
+                                HashMap<String,Object> mHash = (HashMap<String, Object>) myHash.get(string);
+                                int index = messageUsers.indexOf(string);
+>>>>>>> 4af69cadb54074ce8cca8f4d51803f8931e35741
 
                             }
                         }
@@ -135,4 +153,8 @@ public class Control extends AppCompatActivity {
                     }
                 });
     }
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> 4af69cadb54074ce8cca8f4d51803f8931e35741

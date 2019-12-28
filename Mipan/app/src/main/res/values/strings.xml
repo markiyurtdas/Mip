@@ -8,9 +8,14 @@
     <string name="title_jobs">Jobs</string>
     <string name="title_profil">Profil</string>
     <string name="title_events">Events</string>
-    <string name="enter_username">Enter Username</string>
-    <string name="enter_passwords">Enter Password</string>
+    <string name="enter_username">Username</string>
+    <string name="enter_passwords">Password</string>
     <string name="signup">Signup</string>
+
+    <string name="enter_user_fullname">Name</string>
+    <string name="enter_user_phone_number">Phone Number</string>
+    <string name="enter_user_email">Mail</string>
+
     <string name="enter_again_passwords">Enter password again</string>
     <string name="set_birthday">Set Birthday</string>
     <string name="fullname">Fullname</string>
@@ -20,4 +25,5 @@
     <string name="other">Other</string>
     <string name="tv_event_name">Event Name</string>
     <string name="description">Description</string>
+
 </resources>
