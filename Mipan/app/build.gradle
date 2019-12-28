@@ -41,6 +41,7 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
     implementation 'com.squareup.picasso:picasso:2.5.2'
     implementation 'com.google.code.gson:gson:2.8.6'
+    implementation 'com.github.Binary-Finery:EZDialog:1.0.4'
 
 
 }

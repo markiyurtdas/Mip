@@ -1,5 +1,6 @@
 package com.marki.mipan.ui;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,6 +12,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.marki.mipan.R;
+import com.marki.mipan.adapters.EventFragmentAdapter;
 import com.marki.mipan.model.Event;
 
 import java.util.ArrayList;
@@ -19,11 +21,16 @@ public class EventsFragment extends Fragment {
 
     RecyclerView recyclerView;
     LinearLayoutManager layoutManager;
+    Context mContext;
+    EventFragmentAdapter mAdapter;
 
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         View root = inflater.inflate(R.layout.fragment_events, container, false);
+        mContext = root.getContext();
+        recyclerView = root.findViewById(R.id.rec_events);
+
 
 
 
@@ -48,7 +55,7 @@ public class EventsFragment extends Fragment {
 
 
         // specify an adapter (see also next example)
-        mAdapter = new CreatedCampaignsAdapter(listOfUrl,mContext,getActivity().getSupportFragmentManager());
+        mAdapter = new EventFragmentAdapter(listOfUrl,mContext);
         recyclerView.setAdapter(mAdapter);
 
     }
