@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 
+import com.github.loadingview.LoadingDialog;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.analytics.FirebaseAnalytics;
@@ -17,9 +18,8 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.iid.FirebaseInstanceId;
 import com.google.firebase.iid.InstanceIdResult;
-import com.marki.mipan.activities.SignUP;
+import com.marki.mipan.activities.Chat;
 import com.marki.mipan.model.Member;
-import com.marki.mipan.ui.FragmentMainActivity;
 
 public class StartActivity extends AppCompatActivity {
     private FirebaseAnalytics mFirebaseAnalytics;
@@ -32,7 +32,12 @@ public class StartActivity extends AppCompatActivity {
         setContentView(R.layout.activity_start);
 
 
-
+        LoadingDialog dialog = LoadingDialog.Companion.get(this);
+        //noinspection KotlinInternalInJava
+        dialog.getLoadingView$loadingview_release().setDuration(90);
+        //dialog.hide();
+        // later dismiss
+        //dialog.show();
 
 
         // Obtain the FirebaseAnalytics instance.
@@ -51,7 +56,7 @@ public class StartActivity extends AppCompatActivity {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                         if (dataSnapshot.hasChildren()){
-                            System.out.println(dataSnapshot.getValue().toString());
+                          //  System.out.println(dataSnapshot.getValue().toString());
                         }
                     }
 
@@ -97,7 +102,7 @@ public class StartActivity extends AppCompatActivity {
                 });
 
 
-        startActivity(new Intent(StartActivity.this, SignUP.class));
+        startActivity(new Intent(StartActivity.this, Chat.class));
 //        startActivity(new Intent(StartActivity.this, FragmentMainActivity.class));
     }
 }

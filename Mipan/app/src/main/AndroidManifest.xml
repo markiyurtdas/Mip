@@ -12,7 +12,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+
+
         <activity android:name=".activities.SignUP"></activity>
+        <activity android:name=".activities.Chat"></activity>
         <activity android:name=".activities.SurveyDetail" />
         <activity
             android:name=".ui.FragmentMainActivity"
