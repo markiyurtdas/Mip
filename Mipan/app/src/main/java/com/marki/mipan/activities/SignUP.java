@@ -103,7 +103,7 @@ public class SignUP extends AppCompatActivity {
 
 
 
-        guest.dbRef.child("mip")
+        member.dbRef.child("mip")
                 .child("guest")
                 .child(guest.getUsername())
                 .setValue(sendUser);
@@ -118,14 +118,16 @@ public class SignUP extends AppCompatActivity {
         sendUser.put("users",event.getUsers());
         sendUser.put("event_id",event.getEvent_id());
 
+        HashMap<String,Object> hashUpdate = new HashMap<>();
+        hashUpdate.put(member.getUsername(),member.getUsername());
 
 
 
-
-        event.dbRef.child("mip")
+        member.dbRef.child("mip")
                 .child("event")
-                .child(event.getEvent_id())
-                .setValue(sendUser);
+                .child(String.valueOf(event.getEvent_id()))
+                .child("users")
+                .updateChildren(hashUpdate);
     }
     private void sendJobAdsToFB() {
         JobAds jobAds = new JobAds();
@@ -143,12 +145,12 @@ public class SignUP extends AppCompatActivity {
 
 
 
-        jobAds.dbRef.child("mip")
+        member.dbRef.child("mip")
                 .child("job_ad")
-                .child(jobAds.getJob_id())
+                .child(String.valueOf(jobAds.getJob_id()))
                 .setValue(sendUser);
     }
-    private void sendSurveyToFB() {
+    private void sendSurveyToFB(long coinPrice) {
         Survey survey = new Survey();
         HashMap<String, Object> sendUser = new HashMap<>();
         sendUser.put("survey_id",survey.getSurvey_id());
@@ -156,7 +158,7 @@ public class SignUP extends AppCompatActivity {
         sendUser.put("created_date",survey.getCreator_username());
         sendUser.put("description",survey.getDescription());
         sendUser.put("end_date",survey.getEnd_date());
-        sendUser.put("mip_coin",survey.getPhoto_url());
+        sendUser.put("mip_coin",String.valueOf(coinPrice));
         sendUser.put("questions",survey.getQuestions());
         sendUser.put("title",survey.getTitle());
 
@@ -164,9 +166,9 @@ public class SignUP extends AppCompatActivity {
 
 
 
-        jobAds.dbRef.child("mip")
+        member.dbRef.child("mip")
                 .child("survey")
-                .child(survey.getSurvey_id())
+                .child(String.valueOf(survey.getSurvey_id()))
                 .setValue(sendUser);
     }
     private void sendCompanyToFB() {
@@ -182,9 +184,9 @@ public class SignUP extends AppCompatActivity {
 
 
 
-        jobAds.dbRef.child("mip")
+        member.dbRef.child("mip")
                 .child("company")
-                .child(company.getCompany_id())
+                .child(String.valueOf(company.getCompany_id()))
                 .setValue(sendUser);
     }
     private void sendAppliesToFB() {
@@ -200,9 +202,9 @@ public class SignUP extends AppCompatActivity {
 
 
 
-        jobAds.dbRef.child("mip")
+        member.dbRef.child("mip")
                 .child("applies")
-                .child(applies.getApply_id())
+                .child(String.valueOf(applies.getApply_id()))
                 .setValue(sendUser);
     }
 }
