@@ -22,7 +22,10 @@ import java.util.List;
 import java.util.Set;
 
 public class Control extends AppCompatActivity {
-    public static ArrayList<Event> eventList = new ArrayList<Event>();
+    public static ArrayList<Event> eventList = new ArrayList<>();
+    public static ArrayList<String> messageUsers = new ArrayList<>();
+    public static ArrayList<HashMap> messageMessages = new ArrayList<>() ;
+
     Member member = Member.getInstance();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -83,5 +86,34 @@ public class Control extends AppCompatActivity {
                     }
                 });
 
+    }
+
+
+    public void getUserMessages(){
+        member.dbRef.child("message")
+                .child(member.getUsername())
+                .child("receive")
+                .addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                        if (dataSnapshot.hasChildren()){
+                            HashMap<String,Object> myHash = (HashMap<String, Object>) dataSnapshot.getValue();
+                            Set<String> str = myHash.keySet();
+
+                            for (String string:str){
+                                //string mehmet
+                                messageUsers.add(string);
+                                HashMap<String,Object> mHash = (HashMap<String, Object>) myHash.get(string);
+                                int index = messageUsers.indexOf(string);
+
+                            }
+                        }
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                    }
+                });
     }
 }
