@@ -1,5 +1,7 @@
 package com.marki.mipan.model;
 
+import java.util.List;
+
 public class Survey {
     public Long getCreated_date() {
         return created_date;
@@ -41,11 +43,11 @@ public class Survey {
         this.mip_coin = mip_coin;
     }
 
-    public Long[] getQuestions() {
+    public List<Question> getQuestions() {
         return questions;
     }
 
-    public void setQuestions(Long[] questions) {
+    public void setQuestions(List<Question> questions) {
         this.questions = questions;
     }
 
@@ -57,11 +59,21 @@ public class Survey {
         this.title = title;
     }
 
+
+    public Long getSurvey_id() {
+        return survey_id;
+    }
+
+    public void setSurvey_id(Long survey_id) {
+        this.survey_id = survey_id;
+    }
+
+    private Long survey_id;
     private Long created_date;
     private String creator_username;
     private String description;
     private Long end_date;
     private Long mip_coin;
-    private Long[]  questions;
+    private List<Question> questions;
     private String title;
 }

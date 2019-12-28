@@ -19,6 +19,7 @@ import com.google.firebase.iid.FirebaseInstanceId;
 import com.google.firebase.iid.InstanceIdResult;
 import com.marki.mipan.activities.SignUP;
 import com.marki.mipan.model.Member;
+import com.marki.mipan.safe.Control;
 import com.marki.mipan.ui.FragmentMainActivity;
 
 public class StartActivity extends AppCompatActivity {
@@ -97,7 +98,7 @@ public class StartActivity extends AppCompatActivity {
                 });
 
 
-        startActivity(new Intent(StartActivity.this, SignUP.class));
+        startActivity(new Intent(StartActivity.this, Control.class));
 //        startActivity(new Intent(StartActivity.this, FragmentMainActivity.class));
     }
 }
