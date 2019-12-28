@@ -65,6 +65,16 @@ public class JobAds {
         this.type = type;
     }
 
+    private Long job_id;
+
+    public Long getJob_id() {
+        return job_id;
+    }
+
+    public void setJob_id(Long job_id) {
+        this.job_id = job_id;
+    }
+
     private String company;
     private String company_mail;
     private Long created_date;

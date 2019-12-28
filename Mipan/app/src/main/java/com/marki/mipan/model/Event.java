@@ -4,6 +4,16 @@ import java.util.Arrays;
 import java.util.List;
 
 public class Event {
+    private long event_id;
+
+    public long getEvent_id() {
+        return event_id;
+    }
+
+    public void setEvent_id(long event_id) {
+        this.event_id = event_id;
+    }
+
     private long date;
     private String description;
 
