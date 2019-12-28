@@ -13,6 +13,31 @@ public class Survey {
     private List<Question> questions;
     private String title;
     private List<List<String>> answers;
+    private List<List<String>> choises;
+
+    @Override
+    public String toString() {
+        return "Survey{" +
+                "survey_id=" + survey_id +
+                ", created_date=" + created_date +
+                ", creator_username='" + creator_username + '\'' +
+                ", description='" + description + '\'' +
+                ", end_date=" + end_date +
+                ", mip_coin=" + mip_coin +
+                ", questions=" + questions +
+                ", title='" + title + '\'' +
+                ", answers=" + answers +
+                ", choises=" + choises +
+                '}';
+    }
+
+    public List<List<String>> getChoises() {
+        return choises;
+    }
+
+    public void setChoises(List<List<String>> choises) {
+        this.choises = choises;
+    }
 
     public Long getSurvey_id() {
         return survey_id;
@@ -86,33 +111,11 @@ public class Survey {
         this.answers = answers;
     }
 
-    @Override
-    public String toString() {
-        return "Survey{" +
-                "survey_id=" + survey_id +
-                ", created_date=" + created_date +
-                ", creator_username='" + creator_username + '\'' +
-                ", description='" + description + '\'' +
-                ", end_date=" + end_date +
-                ", mip_coin=" + mip_coin +
-                ", questions=" + questions +
-                ", title='" + title + '\'' +
-                ", answers=" + answers +
-                '}';
-    }
 }
 
 class Question {
-    private List<List<String>> check_values;
     private String description;
 
-    public List<List<String>> getCheckValues() {
-        return check_values;
-    }
-
-    public void setCheckValues(List<List<String>> check_values) {
-        this.check_values = check_values;
-    }
 
     public String getDescription() {
         return description;
@@ -125,7 +128,6 @@ class Question {
     @Override
     public String toString() {
         return "Question{" +
-                "checkValues=" + check_values +
                 ", description='" + description + '\'' +
                 '}';
     }
