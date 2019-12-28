@@ -11,6 +11,7 @@ public class Job {
     private String photo;
     private String company;
     private String company_mail;
+    private Long creator_username;
     private long created_date;
     private long end_date;
 }
