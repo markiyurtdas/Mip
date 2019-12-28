@@ -1,6 +1,6 @@
 package com.marki.mipan.model;
 
-public class applies {
+public class Applies {
 
     private Long job_id;
     private Long apply_id;

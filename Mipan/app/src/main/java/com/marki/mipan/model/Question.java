@@ -2,7 +2,7 @@ package com.marki.mipan.model;
 
 import java.util.List;
 
-public class question {
+public class Question {
     private Integer q_id;
     private String q_type;
     private String title;

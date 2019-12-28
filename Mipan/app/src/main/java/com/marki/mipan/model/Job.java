@@ -2,7 +2,7 @@ package com.marki.mipan.model;
 
 import java.util.List;
 
-public class job {
+public class Job {
 
     private Integer job_id;
     private String type;

@@ -2,7 +2,7 @@ package com.marki.mipan.model;
 
 import java.util.List;
 
-public class survey {
+public class Survey {
     private Long survey_id;
     private Long creator_username;
     private String title;

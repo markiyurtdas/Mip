@@ -2,7 +2,7 @@ package com.marki.mipan.model;
 
 import java.util.List;
 
-public class member {
+public class Member {
     private String username;
     private String type;
     private boolean has_username;

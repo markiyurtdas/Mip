@@ -2,7 +2,7 @@ package com.marki.mipan.model;
 
 import java.util.List;
 
-public class event {
+public class Event {
     private Integer event_id;
     private String title;
     private String description;
