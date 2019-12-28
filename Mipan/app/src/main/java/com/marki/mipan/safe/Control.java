@@ -16,28 +16,58 @@ import com.marki.mipan.model.Company;
 import com.marki.mipan.model.Event;
 import com.marki.mipan.model.JobAds;
 import com.marki.mipan.model.Member;
+import com.marki.mipan.model.Survey;
+
+import org.json.JSONObject;
+
+import java.security.Key;
+
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Set;
 
 public class Control extends AppCompatActivity {
     public static ArrayList<Event> eventList = new ArrayList<>();
     public static ArrayList<JobAds> jobList = new ArrayList<>();
     public static ArrayList<Applies> appliesList = new ArrayList<>();
     public static ArrayList<Company> companyList = new ArrayList<>();
-    public static ArrayList<AnswerList> answerListList = new ArrayList<>();
+    public static ArrayList<Survey> surveyList = new ArrayList<>();
+    public static ArrayList<Member> memberList = new ArrayList<>();
+    public static ArrayList<String> messageUsers = new ArrayList<>();
+    public static List[][] messageMessages ;
+
+
+
+
 
     Member member = Member.getInstance();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_control);
+<<<<<<< HEAD
         //getEvents();
         getJobAds();
         getApplies();
         getCompanies();
         getAnswerList();
+=======
+>>>>>>> 7ee1bcf422302e5dbfebebf36da43b56a5251709
 
-        startActivity(new Intent(Control.this, Chat.class));
+
+        //getEvents();
+        //getJobAds();
+        //getApplies();
+        //getCompanies();
+        //getAnswerList();
+        getSurvey();
+        //getMember();
+
+
+
+
+
     }
     public void getEvents(){
 
@@ -124,18 +154,18 @@ public class Control extends AppCompatActivity {
                 });
 
     }
-    public void getAnswerList() {
+    public void getSurvey() {
         member.dbRef.child("mip")
-                .child("answer_list")
+                .child("survey")
                 .addValueEventListener(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                         for (DataSnapshot postSnapShot : dataSnapshot.getChildren()) {
-                            AnswerList myj = postSnapShot.getValue(AnswerList.class);
-                            answerListList.add(myj);
+                            Survey myj = postSnapShot.getValue(Survey.class);
+                            surveyList.add(myj);
 
                         }
-                        System.out.println("answerList" + answerListList.toString());
+                        System.out.println("surveyList" + surveyList.toString());
                     }
 
                     @Override
@@ -145,6 +175,60 @@ public class Control extends AppCompatActivity {
                 });
 
     }
+    public void getMember(){
 
+        member.dbRef.child("mip")
+                .child("member")
+                .addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                        for (DataSnapshot postSnapShot : dataSnapshot.getChildren()) {
+                            Member myj = postSnapShot.getValue(Member.class);
+                            memberList.add(myj);
+
+                        }
+                        System.out.println("members" + memberList.toString());
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                    }
+                });
+
+
+    }
+
+
+
+
+    public void getUserMessages(){
+        member.dbRef.child("message")
+                .child(member.getUsername())
+                .child("receive")
+                .addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                        if (dataSnapshot.hasChildren()){
+                            HashMap<String,Object> myHash = (HashMap<String, Object>) dataSnapshot.getValue();
+                            Set<String> str = myHash.keySet();
+
+                            for (String string:str){
+
+                                //string mehmet
+                                messageUsers.add(string);
+                                HashMap<String,Object> mHash = (HashMap<String, Object>) myHash.get(string);
+                                int index = messageUsers.indexOf(string);
+
+                            }
+                        }
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                    }
+                });
+    }
 }
 
