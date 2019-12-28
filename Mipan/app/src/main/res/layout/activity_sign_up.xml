@@ -22,7 +22,7 @@
 
         <EditText
             android:id="@+id/et_fullname"
-<<<<<<< HEAD
+
             style="@style/Base.Widget.MaterialComponents.TextInputEditText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -49,42 +49,23 @@
             android:textAlignment="center"
             android:textAllCaps="true" />
 
-=======
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="@string/fullname"/>
->>>>>>> 8afb9156c7e5605de660bc953cb95b6a7600bfdf
         <EditText
             android:id="@+id/et_username"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-<<<<<<< HEAD
             android:hint="@string/enter_username"
             android:textAlignment="center"
             android:textAllCaps="true" />
 
-=======
-            android:textColorHint="@color/colorRed"
-            android:hint="@string/enter_username"/>
->>>>>>> 8afb9156c7e5605de660bc953cb95b6a7600bfdf
-        <EditText
-            android:id="@+id/et_email"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="@string/email"/>
         <EditText
             android:id="@+id/et_password"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-<<<<<<< HEAD
             android:hint="@string/enter_passwords"
             android:inputType="textPassword"
             android:textAlignment="center"
             android:textAllCaps="true" />
 
-=======
-            android:textColorHint="@color/colorRed"
-            android:hint="@string/enter_passwords"/>
         <EditText
             android:id="@+id/et_re_password"
             android:layout_width="match_parent"

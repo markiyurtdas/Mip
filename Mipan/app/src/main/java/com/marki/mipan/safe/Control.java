@@ -89,6 +89,7 @@ public class Control extends AppCompatActivity {
     }
 
 
+
     public void getUserMessages(){
         member.dbRef.child("message")
                 .child(member.getUsername())
