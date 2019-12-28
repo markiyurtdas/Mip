@@ -114,7 +114,8 @@ public class SignUP extends AppCompatActivity {
         sendUser.put("date",event.getDate());
         sendUser.put("description",event.getDescription());
         sendUser.put("title",event.getTitle());
-        sendUser.put("location",event.getLocation());
+        sendUser.put("loc_lon",event.getLocLon());
+        sendUser.put("loc_lat",event.getLocLat());
         sendUser.put("users",event.getUsers());
         sendUser.put("event_id",event.getEvent_id());
 
@@ -192,11 +193,6 @@ public class SignUP extends AppCompatActivity {
     private void sendAppliesToFB() {
         Applies applies = new Applies();
         HashMap<String, Object> sendUser = new HashMap<>();
-        sendUser.put("address",applies.getAddress());
-        sendUser.put("company_name",applies.getCompany_name());
-        sendUser.put("job_list",applies.getJob_list());
-        sendUser.put("location",applies.getLocation());
-        sendUser.put("photos",applies.getPhotos());
 
 
 

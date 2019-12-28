@@ -5,14 +5,54 @@ import java.util.List;
 
 public class Event {
     private long event_id;
-    private String photoUrl;
+    private long mip_coin;
 
+    private String photo;
+    private long date;
+    private String description;
+    private String title;
+    private double locLat;
+    private double locLon;
+
+    public double getLocLat() {
+        return locLat;
+    }
+
+    public void setLocLat(double locLat) {
+        this.locLat = locLat;
+    }
+
+    public double getLocLon() {
+        return locLon;
+    }
+
+    public void setLocLon(double locLon) {
+        this.locLon = locLon;
+    }
+
+    private List<String> users;
     public String getPhotoUrl() {
-        return photoUrl;
+        return photo;
     }
 
     public void setPhotoUrl(String photoUrl) {
-        this.photoUrl = photoUrl;
+        this.photo = photoUrl;
+    }
+
+    public long getMip_coin() {
+        return mip_coin;
+    }
+
+    public void setMip_coin(long mip_coin) {
+        this.mip_coin = mip_coin;
+    }
+
+    public String getPhoto() {
+        return photo;
+    }
+
+    public void setPhoto(String photo) {
+        this.photo = photo;
     }
 
     public long getEvent_id() {
@@ -23,26 +63,10 @@ public class Event {
         this.event_id = event_id;
     }
 
-    private long date;
-    private String description;
-
-    private String title;
-    private double[] location;
-    private List<String> users;
 
     public Event() {
     }
 
-    @Override
-    public String toString() {
-        return "Event{" +
-                "date=" + date +
-                ", description='" + description + '\'' +
-                ", title='" + title + '\'' +
-                ", location=" + Arrays.toString(location) +
-                ", users=" + users +
-                '}';
-    }
 
     public long getDate() {
         return date;
@@ -68,13 +92,7 @@ public class Event {
         this.title = title;
     }
 
-    public double[] getLocation() {
-        return location;
-    }
 
-    public void setLocation(double[] location) {
-        this.location = location;
-    }
 
     public List<String> getUsers() {
         return users;
@@ -84,4 +102,20 @@ public class Event {
         this.users = users;
     }
 //    private long
+
+
+    @Override
+    public String toString() {
+        return "Event{" +
+                "date=" + date +
+                ", event_id=" + event_id +
+                ", description='" + description + '\'' +
+                ", photo='" + photo + '\'' +
+                ", loc_lat=" + locLat +
+                ", loc_lon=" + locLon +
+                ", mip_coin=" + mip_coin +
+                ", title='" + title + '\'' +
+                ", users=" + users +
+                '}';
+    }
 }
