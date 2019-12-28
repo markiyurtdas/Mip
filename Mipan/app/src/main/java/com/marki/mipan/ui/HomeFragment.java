@@ -1,4 +1,4 @@
-package com.marki.mipan.ui.home;
+package com.marki.mipan.ui;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -21,27 +21,11 @@ import java.util.List;
 
 public class HomeFragment extends Fragment {
 
-    private HomeViewModel homeViewModel;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        homeViewModel =
-                ViewModelProviders.of(this).get(HomeViewModel.class);
         View root = inflater.inflate(R.layout.fragment_home, container, false);
-        final TextView textView = root.findViewById(R.id.text_home);
-        final List<String> myListHome = new ArrayList<>();
 
-
-
-
-        homeViewModel.getMDataset().observe(this, new Observer<ArrayList<String>>() {
-            @Override
-            public void onChanged(ArrayList<String> strings) {
-                textView.setText(strings.get(0)+"\n"+strings.get(1));
-            }
-        });
-
-        textView.setText(myListHome.get(0)+"\n"+myListHome.get(1));
         return root;
     }
 }
