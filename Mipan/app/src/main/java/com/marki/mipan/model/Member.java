@@ -19,4 +19,35 @@ public class Member {
     private List<Integer> applies;
     private List<Integer> events;
 
+    public Member() {
+    }
+
+    @Override
+    public String toString() {
+        return "Member{" +
+                "username='" + username + '\'' +
+                ", type='" + type + '\'' +
+                ", has_username=" + has_username +
+                ", is_guest=" + is_guest +
+                ", score_point=" + score_point +
+                ", birthdate=" + birthdate +
+                ", full_name='" + full_name + '\'' +
+                ", password='" + password + '\'' +
+                ", email='" + email + '\'' +
+                ", sex='" + sex + '\'' +
+                ", city='" + city + '\'' +
+                ", create_date=" + create_date +
+                ", open_date=" + open_date +
+                ", applies=" + applies +
+                ", events=" + events +
+                '}';
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
 }
