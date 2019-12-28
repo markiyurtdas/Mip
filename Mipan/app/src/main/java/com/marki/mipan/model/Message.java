@@ -1,17 +1,19 @@
 package com.marki.mipan.model;
 
-public class Message {
+public class Message{
     private long time;
-    private String text;
+    private String messages;
+    private int type;
 
-    public Message() {
+    public Message( ) {
     }
 
     @Override
     public String toString() {
         return "Message{" +
                 "time=" + time +
-                ", text='" + text + '\'' +
+                ", messages='" + messages + '\'' +
+                ", type=" + type +
                 '}';
     }
 
@@ -23,11 +25,19 @@ public class Message {
         this.time = time;
     }
 
-    public String getText() {
-        return text;
+    public String getMessages() {
+        return messages;
     }
 
-    public void setText(String text) {
-        this.text = text;
+    public void setMessages(String messages) {
+        this.messages = messages;
+    }
+
+    public int getType() {
+        return type;
+    }
+
+    public void setType(int type) {
+        this.type = type;
     }
 }
