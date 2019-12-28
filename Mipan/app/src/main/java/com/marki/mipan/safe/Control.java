@@ -16,6 +16,7 @@ import com.marki.mipan.model.Company;
 import com.marki.mipan.model.Event;
 import com.marki.mipan.model.JobAds;
 import com.marki.mipan.model.Member;
+import com.marki.mipan.model.Survey;
 
 import org.json.JSONObject;
 
@@ -30,7 +31,8 @@ public class Control extends AppCompatActivity {
     public static ArrayList<JobAds> jobList = new ArrayList<>();
     public static ArrayList<Applies> appliesList = new ArrayList<>();
     public static ArrayList<Company> companyList = new ArrayList<>();
-    public static ArrayList<AnswerList> answerListList = new ArrayList<>();
+    public static ArrayList<Survey> surveyList = new ArrayList<>();
+    public static ArrayList<Member> memberList = new ArrayList<>();
     public static ArrayList<String> messageUsers = new ArrayList<>();
     public static List[][] messageMessages ;
 
@@ -45,8 +47,9 @@ public class Control extends AppCompatActivity {
         //getJobAds();
         //getApplies();
         //getCompanies();
-        getAnswerList();
-
+        //getAnswerList();
+        //getSurvey();
+        getMember();
 
 
     }
@@ -183,18 +186,18 @@ public class Control extends AppCompatActivity {
                 });
 
     }
-    public void getAnswerList() {
+    public void getSurvey() {
         member.dbRef.child("mip")
-                .child("answer_list")
+                .child("survey")
                 .addValueEventListener(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                         for (DataSnapshot postSnapShot : dataSnapshot.getChildren()) {
-                            AnswerList myj = postSnapShot.getValue(AnswerList.class);
-                            answerListList.add(myj);
+                            Survey myj = postSnapShot.getValue(Survey.class);
+                            surveyList.add(myj);
 
                         }
-                        System.out.println("answerList" + answerListList.toString());
+                        System.out.println("surveyList" + surveyList.toString());
                     }
 
                     @Override
@@ -204,6 +207,30 @@ public class Control extends AppCompatActivity {
                 });
 
     }
+    public void getMember(){
+
+        member.dbRef.child("mip")
+                .child("member")
+                .addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                        for (DataSnapshot postSnapShot : dataSnapshot.getChildren()) {
+                            Member myj = postSnapShot.getValue(Member.class);
+                            memberList.add(myj);
+
+                        }
+                        System.out.println("members" + memberList.toString());
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                    }
+                });
+
+
+    }
+
 
 
     public void getUserMessages(){
