@@ -8,6 +8,9 @@ import android.os.Bundle;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.ValueEventListener;
+import com.marki.mipan.Interface.JsonPlaceHoldeApi;
+import com.marki.mipan.ModelRest.Model;
+import com.marki.mipan.ModelRest.Restaurant;
 import com.marki.mipan.R;
 import com.marki.mipan.activities.Chat;
 import com.marki.mipan.model.AnswerList;
@@ -28,6 +31,12 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Set;
 
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
+
 public class Control extends AppCompatActivity {
     public static ArrayList<Event> eventList = new ArrayList<>();
     public static ArrayList<JobAds> jobList = new ArrayList<>();
@@ -39,7 +48,7 @@ public class Control extends AppCompatActivity {
     public static ArrayList<FoodMenuWeek> foodMenuList = new ArrayList<>();
 
     public static List[][] messageMessages ;
-
+    private List<Restaurant> restList;
 
 
 
@@ -57,9 +66,9 @@ public class Control extends AppCompatActivity {
         //getApplies();
         //getCompanies();
         //getAnswerList();
-        getSurvey();
+        //getSurvey();
         //getMember();
-
+        //getRestaurants();
 
 
 
@@ -217,7 +226,43 @@ public class Control extends AppCompatActivity {
 
     }
 
+    public void getRestaurants(){
+        //Generate Retrofit object
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl("https://developers.zomato.com/api/v2.1/")
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+        //Retrofit create method with Json Api
+        JsonPlaceHoldeApi jsonPlaceHoldeApi = retrofit.create(JsonPlaceHoldeApi.class);
+        //restaurant search with call
+        Call <Model> call = jsonPlaceHoldeApi.getPosts(5,35,27,10000,"real_distance","asc");
+        //take response
+        call.enqueue(new Callback<Model>() {
 
+            @Override
+            public void onResponse(Call <Model> call, Response<Model> response) {
+                //if response is not successful
+                if(!response.isSuccessful()){
+
+
+                }
+                //bind response with Model object
+                Model model = response.body();
+                //bind restaurants list with resList
+                restList = model.restaurants;
+                for(int i = 0;i<5;i++)
+                    System.out.println("baba"+restList.get(i).restaurant.name.toString());
+
+            }
+
+            @Override
+            // if response fail
+            public void onFailure(Call<Model> call, Throwable t) {
+
+            }
+
+        });
+    }
 
 
     public void getUserMessages(){
