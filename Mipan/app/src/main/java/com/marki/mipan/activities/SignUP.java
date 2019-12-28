@@ -166,11 +166,7 @@ public class SignUP extends AppCompatActivity {
 
 
 
-<<<<<<< HEAD
-        survey.dbRef.child("mip")
-=======
         member.dbRef.child("mip")
->>>>>>> 7659a3573efdf9ae2cd1dff58f39d3c89b7accbd
                 .child("survey")
                 .child(String.valueOf(survey.getSurvey_id()))
                 .setValue(sendUser);
@@ -188,11 +184,7 @@ public class SignUP extends AppCompatActivity {
 
 
 
-<<<<<<< HEAD
-        company.dbRef.child("mip")
-=======
         member.dbRef.child("mip")
->>>>>>> 7659a3573efdf9ae2cd1dff58f39d3c89b7accbd
                 .child("company")
                 .child(String.valueOf(company.getCompany_id()))
                 .setValue(sendUser);
@@ -210,11 +202,7 @@ public class SignUP extends AppCompatActivity {
 
 
 
-<<<<<<< HEAD
-        applies.dbRef.child("mip")
-=======
         member.dbRef.child("mip")
->>>>>>> 7659a3573efdf9ae2cd1dff58f39d3c89b7accbd
                 .child("applies")
                 .child(String.valueOf(applies.getApply_id()))
                 .setValue(sendUser);
