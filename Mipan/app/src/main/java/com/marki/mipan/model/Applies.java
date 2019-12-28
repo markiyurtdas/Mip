@@ -1,6 +1,19 @@
 package com.marki.mipan.model;
 
 public class Applies {
+    @Override
+    public String toString() {
+        return "Applies{" +
+                "apply_id=" + apply_id +
+                ", description='" + description + '\'' +
+                ", end_date='" + end_date + '\'' +
+                ", file='" + file + '\'' +
+                ", job_id=" + job_id +
+                ", send_date=" + send_date +
+                ", username='" + username + '\'' +
+                '}';
+    }
+
     public Long getApply_id() {
         return apply_id;
     }
@@ -17,11 +30,11 @@ public class Applies {
         this.description = description;
     }
 
-    public String getEnd_date() {
+    public Long getEnd_date() {
         return end_date;
     }
 
-    public void setEnd_date(String end_date) {
+    public void setEnd_date(Long end_date) {
         this.end_date = end_date;
     }
 
@@ -59,7 +72,7 @@ public class Applies {
 
     private Long apply_id;
     private String description;
-    private String end_date;
+    private Long end_date;
     private String file;
     private Long job_id;
     private Long send_date;

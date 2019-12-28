@@ -1,6 +1,21 @@
 package com.marki.mipan.model;
 
 public class JobAds {
+    @Override
+    public String toString() {
+        return "JobAds{" +
+                "job_id=" + job_id +
+                ", company='" + company + '\'' +
+                ", company_mail='" + company_mail + '\'' +
+                ", created_date=" + created_date +
+                ", description='" + description + '\'' +
+                ", end_date=" + end_date +
+                ", photo_url='" + photo_url + '\'' +
+                ", title='" + title + '\'' +
+                ", type='" + type + '\'' +
+                '}';
+    }
+
     public String getCompany() {
         return company;
     }
