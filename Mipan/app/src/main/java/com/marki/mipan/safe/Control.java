@@ -47,15 +47,15 @@ public class Control extends AppCompatActivity {
                             for(String string:str){
                                 String o = myHash.get(string).toString();
                                 Event mEvent = gson.fromJson(o,Event.class);
-                                
+
                             }
-                            JSONObject o = (JSONObject) jArray.get(i);
+                            /*JSONObject o = (JSONObject) jArray.get(i);
                             User tempUser = gson.fromJson(o.toString(), User.class);
                             for (int j = 0; j < o.getJSONArray("create_courses").length(); j++) {
                                 Course c = gson.fromJson(o.getJSONArray("create_courses").get(j).toString(), Course.class);
                                 tempUser.addToCreateCourses(c);
                                 kurslar.put(c.getCourse_name(),c);
-                            }
+                            }*/
                         }
                     }
 
