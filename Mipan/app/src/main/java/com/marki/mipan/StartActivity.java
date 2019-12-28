@@ -19,6 +19,7 @@ import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.iid.FirebaseInstanceId;
 import com.google.firebase.iid.InstanceIdResult;
 import com.marki.mipan.activities.Chat;
+import com.marki.mipan.activities.ChatList;
 import com.marki.mipan.model.Member;
 import com.marki.mipan.safe.Control;
 
@@ -104,7 +105,7 @@ public class StartActivity extends AppCompatActivity {
 
 
 
-        startActivity(new Intent(StartActivity.this, Control.class));
+        startActivity(new Intent(StartActivity.this, ChatList.class));
 //        startActivity(new Intent(StartActivity.this, FragmentMainActivity.class));
     }
 }

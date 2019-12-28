@@ -93,16 +93,18 @@ public class Chat extends AppCompatActivity {
 
     public void getReceivedMessage( ){
 
-        member.dbRef.child("message").child(sender).child("receive").child(sentTo).addChildEventListener(new ChildEventListener() {
+        member.dbRef.child("message").child(sender).child("receive").addChildEventListener(new ChildEventListener() {
             @Override
             public void onChildAdded(DataSnapshot dataSnapshot, String s) {
+                System.out.println("xyz---------childAdded");
             }
 
             @Override
             public void onChildChanged(DataSnapshot dataSnapshot, String s) {
 
-                System.out.println("zxc"+dataSnapshot.getValue().toString());;
-                addMessageBox(dataSnapshot.getValue().toString(),1);
+                layout.removeAllViews();
+                MessageList.clear();
+                getAllSendMessages();
             }
 
             @Override
@@ -187,15 +189,20 @@ public class Chat extends AppCompatActivity {
 
         member.dbRef.child("message")
                 .child(sender)
-                .child("sendTo").child(sentTo).addChildEventListener(new ChildEventListener() {
+                .child("sendTo").addChildEventListener(new ChildEventListener() {
             @Override
             public void onChildAdded(DataSnapshot dataSnapshot, String s) {
+
 
             }
 
             @Override
             public void onChildChanged(DataSnapshot dataSnapshot, String s) {
-                System.out.println("zxc"+dataSnapshot.getValue().toString());;
+
+                    layout.removeAllViews();
+                    MessageList.clear();
+                    getAllSendMessages();
+
             }
 
             @Override
@@ -259,7 +266,7 @@ public class Chat extends AppCompatActivity {
         }
         textView.setLayoutParams(lp2);
         layout.addView(textView);
-        System.out.println("zxctext   "+textView.getText().toString());
+
         scrollView.fullScroll(View.FOCUS_DOWN);
     }
 
