@@ -53,9 +53,18 @@ public class SignUP extends AppCompatActivity {
 
     private void sendToFB() {
         HashMap<String, Object> sendUser = new HashMap<>();
-        sendUser.put("username",member.getUsername());
-        sendUser.put("password",member.getPassword());
+        sendUser.put("birthdate",member.getBirthdate());
+        sendUser.put("city",member.getCity());
         sendUser.put("create_date",System.currentTimeMillis()/1000L);
+        sendUser.put("email",member.getEmail());
+        sendUser.put("full_name",member.getFull_name());
+        sendUser.put("has_usename",member.isHas_username());
+        sendUser.put("is_guest",member.isIs_guest());
+        sendUser.put("mip_coin",member.getMip_coin());
+        sendUser.put("password",member.getPassword());
+        sendUser.put("sex",member.getSex());
+        sendUser.put("type",member.getType());
+        sendUser.put("username",member.getUsername());
 
 
 
