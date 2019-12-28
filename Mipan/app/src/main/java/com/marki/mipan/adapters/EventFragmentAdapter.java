@@ -51,8 +51,8 @@ public class EventFragmentAdapter extends RecyclerView.Adapter<EventFragmentAdap
     @Override
     public void onBindViewHolder(@NonNull final MyViewHolder holder, final int position) {
         Event e = mDataset.get(position);
-        if (e.getPhotoUrl()!= null){
-            Picasso.with(mContext).load(e.getPhotoUrl()).into(holder.imageView);
+        if (e.getPhoto()!= null){
+            Picasso.with(mContext).load(e.getPhoto()).into(holder.imageView);
         }
         holder.tvTitle.setText(e.getTitle());
         holder.tvDescription.setText(e.getDescription());
