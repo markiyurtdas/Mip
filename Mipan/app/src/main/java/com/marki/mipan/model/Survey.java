@@ -103,14 +103,14 @@ public class Survey {
 }
 
 class Question {
-    private List<String> check_values;
+    private List<List<String>> check_values;
     private String description;
 
-    public List<String> getCheckValues() {
+    public List<List<String>> getCheckValues() {
         return check_values;
     }
 
-    public void setCheckValues(List<String> check_values) {
+    public void setCheckValues(List<List<String>> check_values) {
         this.check_values = check_values;
     }
 

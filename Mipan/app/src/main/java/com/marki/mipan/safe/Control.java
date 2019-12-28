@@ -16,16 +16,16 @@ import com.marki.mipan.model.Company;
 import com.marki.mipan.model.Event;
 import com.marki.mipan.model.JobAds;
 import com.marki.mipan.model.Member;
-<<<<<<< HEAD
 import com.marki.mipan.model.Survey;
 
 import org.json.JSONObject;
 
 import java.security.Key;
-=======
->>>>>>> 473f8ff03ae0543df99077390a1cf55eccdb1422
+
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Set;
 
 public class Control extends AppCompatActivity {
     public static ArrayList<Event> eventList = new ArrayList<>();
@@ -53,8 +53,8 @@ public class Control extends AppCompatActivity {
         //getApplies();
         //getCompanies();
         //getAnswerList();
-        //getSurvey();
-        getMember();
+        getSurvey();
+        //getMember();
 
 
 
