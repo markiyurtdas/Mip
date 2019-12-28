@@ -55,14 +55,7 @@ public class Control extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_control);
-<<<<<<< HEAD
-        //getEvents();
-        getJobAds();
-        getApplies();
-        getCompanies();
-        getAnswerList();
-=======
->>>>>>> 7ee1bcf422302e5dbfebebf36da43b56a5251709
+
 
 
         //getEvents();
