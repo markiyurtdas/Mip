@@ -136,6 +136,8 @@ public class HomeFragment extends Fragment {
     public void onResume() {
 
 
+
+
         if(!member.isIs_guest()){
             member.dbRef.child("mip")
                     .child("member")

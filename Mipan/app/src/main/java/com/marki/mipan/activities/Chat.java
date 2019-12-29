@@ -14,6 +14,7 @@ import android.widget.ScrollView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.firebase.FirebaseError;
@@ -53,8 +54,8 @@ public class Chat extends AppCompatActivity {
         Intent i = getIntent();
 
         sentTo=i.getStringExtra("sender");
-        getReceivedMessage();
-        getSentToMessage();
+//        getReceivedMessage();
+//        getSentToMessage();
 
 
         layout = (LinearLayout) findViewById(R.id.layout1);
@@ -64,7 +65,7 @@ public class Chat extends AppCompatActivity {
         scrollView = (ScrollView) findViewById(R.id.scrollView);
 
         getSupportActionBar().setTitle(sentTo);
-        getAllSendMessages();
+//        getAllSendMessages();
 
         sendButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -78,7 +79,7 @@ public class Chat extends AppCompatActivity {
                         .child(member.getUsername())
                         .child("sendTo")
                         .child(sentTo)
-                        .setValue(h);
+                        .updateChildren(h);
 
                 messageArea.setText("");
             }
@@ -96,68 +97,25 @@ public class Chat extends AppCompatActivity {
 
     public void getReceivedMessage( ){
 
-        member.dbRef.child("message").child(member.getUsername()).child("receive").addChildEventListener(new ChildEventListener() {
-            @Override
-            public void onChildAdded(DataSnapshot dataSnapshot, String s) {
-                System.out.println("xyz---------childAdded");
-            }
+        member.dbRef.child("message").child(member.getUsername())
+                .child("receive")
+                .addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
 
-            @Override
-            public void onChildChanged(DataSnapshot dataSnapshot, String s) {
+                    }
 
-                layout.removeAllViews();
-                MessageList.clear();
-                getAllSendMessages();
-            }
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError databaseError) {
 
-            @Override
-            public void onChildRemoved(DataSnapshot dataSnapshot) {
-
-            }
-
-            @Override
-            public void onChildMoved(DataSnapshot dataSnapshot, String s) {
-
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
-
-            }
-
-
-
-        });
-    }
+                    }
+                });    }
 
     public void getAllSendMessages(){
-        member.dbRef.child("message").child(member.getUsername())
+        String str = member.dbRef.child("message").child(member.getUsername())
                 .child("sendTo")
                 .child(sentTo)
-                .addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                if (dataSnapshot.hasChildren()){
-                    HashMap<String,String> myHash = (HashMap<String, String>) dataSnapshot.getValue();
-                    Set<String> setList = myHash.keySet();
-                    for (String s:setList){
-                        Message m = new Message();
-                        m.setTime(Long.parseLong(s));
-                        m.setMessages(myHash.get(s).toString());
-                        m.setType(2);
-                        MessageList.add(m);
-                        System.out.println("asasdasd0"+MessageList.toString());
-                    }
-                    getAllRecMessages();
-                }
-
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
-
-            }
-        });
+                .toString();
     }
     public void getAllRecMessages(){
         member.dbRef.child("message")
@@ -188,45 +146,45 @@ public class Chat extends AppCompatActivity {
                 });
     }
 
-    public void getSentToMessage( ){
-
-
-        member.dbRef.child("message")
-                .child(member.getUsername())
-                .child("sendTo").addChildEventListener(new ChildEventListener() {
-            @Override
-            public void onChildAdded(DataSnapshot dataSnapshot, String s) {
-
-
-            }
-
-            @Override
-            public void onChildChanged(DataSnapshot dataSnapshot, String s) {
-
-                    layout.removeAllViews();
-                    MessageList.clear();
-                    getAllSendMessages();
-
-            }
-
-            @Override
-            public void onChildRemoved(DataSnapshot dataSnapshot) {
-
-            }
-
-            @Override
-            public void onChildMoved(DataSnapshot dataSnapshot, String s) {
-
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
-
-            }
-
-
-        });
-    }
+//    public void getSentToMessage( ){
+//
+//
+//        member.dbRef.child("message")
+//                .child(member.getUsername())
+//                .child("sendTo").addChildEventListener(new ChildEventListener() {
+//            @Override
+//            public void onChildAdded(DataSnapshot dataSnapshot, String s) {
+//
+//
+//            }
+//
+//            @Override
+//            public void onChildChanged(DataSnapshot dataSnapshot, String s) {
+//
+//                    layout.removeAllViews();
+//                    MessageList.clear();
+//                    getAllSendMessages();
+//
+//            }
+//
+//            @Override
+//            public void onChildRemoved(DataSnapshot dataSnapshot) {
+//
+//            }
+//
+//            @Override
+//            public void onChildMoved(DataSnapshot dataSnapshot, String s) {
+//
+//            }
+//
+//            @Override
+//            public void onCancelled(@NonNull DatabaseError databaseError) {
+//
+//            }
+//
+//
+//        });
+//    }
 
 
     public void sendScreen(){
@@ -276,6 +234,25 @@ public class Chat extends AppCompatActivity {
     }
 
 
+    @Override
+    protected void onResume() {
 
+        member.dbRef.child("message")
+                .child(member.getUsername())
+                .child("sentTo")
+                .child("hande")
+                .addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                        System.out.println("asdf"+dataSnapshot.getChildren().toString());
 
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                    }
+                });
+        super.onResume();
+    }
 }

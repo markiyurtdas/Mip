@@ -212,7 +212,7 @@ public class Control extends AppCompatActivity {
 
         member.dbRef.child("mip")
                 .child("member")
-                .addValueEventListener(new ValueEventListener() {
+                .addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                         for (DataSnapshot postSnapShot : dataSnapshot.getChildren()) {
