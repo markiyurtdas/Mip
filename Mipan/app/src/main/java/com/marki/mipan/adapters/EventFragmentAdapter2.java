@@ -9,13 +9,14 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+
 import com.marki.mipan.R;
 import com.marki.mipan.model.Event;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
-public class EventFragmentAdapter extends RecyclerView.Adapter<EventFragmentAdapter.MyViewHolder>  {
+public class EventFragmentAdapter2 extends RecyclerView.Adapter<EventFragmentAdapter2.MyViewHolder>  {
     private Context mContext;
     public ArrayList<Event> mDataset;
 
@@ -35,7 +36,7 @@ public class EventFragmentAdapter extends RecyclerView.Adapter<EventFragmentAdap
             tvDescription = v.findViewById(R.id.tv_desc);
         }
     }
-    public EventFragmentAdapter(ArrayList<Event> myDataset, Context mContext) {
+    public EventFragmentAdapter2(ArrayList<Event> myDataset, Context mContext) {
         this.mDataset = myDataset;
         this.mContext = mContext;
     }

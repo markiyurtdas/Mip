@@ -14,6 +14,8 @@ import android.preference.PreferenceManager;
 import com.marki.mipan.R;
 import com.marki.mipan.adapters.TypeListAdapter;
 import com.marki.mipan.model.Member;
+
+import android.provider.Settings;
 import android.provider.Settings.Secure;
 import android.view.View;
 import android.widget.Button;
@@ -44,7 +46,9 @@ public class FirstActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_first);
-
+        String android_id = Settings.Secure.getString(FirstActivity.this.getContentResolver(),
+                Settings.Secure.ANDROID_ID);
+        member.setUsername(android_id);
         recyclerView = findViewById(R.id.rec_first);
         //TODO sil sonradan
         typeList.add("Stajyer");

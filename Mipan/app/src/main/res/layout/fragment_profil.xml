@@ -7,37 +7,56 @@
     android:background="@color/graylight"
     android:orientation="vertical">
 
-    <ScrollView
-        android:layout_marginBottom="?attr/actionBarSize"
+    <Button
+        android:visibility="invisible"
+        android:id="@+id/btn_goto_login"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content"
+        android:text="Giriş yapın"
+        app:layout_constraintBottom_toBottomOf="@+id/scrollView2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ScrollView
+        android:id="@+id/scrollView2"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        >
+
         <LinearLayout
-            android:orientation="vertical"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="405dp">
+
                 <LinearLayout
-                    android:background="@drawable/gradientbackground"
                     android:layout_width="match_parent"
                     android:layout_height="350dp"
+                    android:background="@drawable/gradientbackground"
                     android:orientation="vertical">
+
                     <ImageView
-                        android:layout_marginTop="45dp"
-                        android:layout_gravity="center_horizontal"
+                        android:id="@+id/tv_p_image"
                         android:layout_width="150dp"
                         android:layout_height="150dp"
-                        android:src="@drawable/profil_image"/>
-                    <TextView
-                        android:layout_marginTop="10dp"
                         android:layout_gravity="center_horizontal"
+                        android:layout_marginTop="45dp"
+                        android:src="@drawable/profil_image" />
+
+                    <TextView
+                        android:id="@+id/tv_p_name"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginTop="10dp"
                         android:text="Wiliam Snoe"
                         android:textColor="#fff"
-                        android:textStyle="bold"
-                        android:textSize="21sp"/>
+                        android:textSize="21sp"
+                        android:textStyle="bold" />
                 </LinearLayout>
 
                 <FrameLayout
@@ -57,13 +76,14 @@
                             android:layout_height="match_parent"
                             android:layout_weight="1"
                             android:gravity="center"
-                            android:orientation="vertical">
+                            android:orientation="vertical"
+                            android:visibility="invisible">
 
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:textColor="@color/colorWhite"
                                 android:text="Photos"
+                                android:textColor="@color/colorWhite"
                                 android:textSize="20sp" />
 
                             <TextView
@@ -77,6 +97,7 @@
 
                         </LinearLayout>
 
+
                         <LinearLayout
                             android:layout_width="0dp"
                             android:layout_height="match_parent"
@@ -87,15 +108,16 @@
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
+                                android:text="MipCoin"
                                 android:textColor="@color/colorWhite"
-                                android:text="Followers"
                                 android:textSize="20sp" />
 
                             <TextView
+                                android:id="@+id/tv_mipcoin"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:paddingTop="10dp"
-                                android:text="1205"
+                                android:text="360"
                                 android:textColor="@color/startblue"
                                 android:textSize="20sp"
                                 android:textStyle="bold" />
@@ -107,20 +129,21 @@
                             android:layout_height="match_parent"
                             android:layout_weight="1"
                             android:gravity="center"
-                            android:orientation="vertical">
+                            android:orientation="vertical"
+                            android:visibility="invisible">
 
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
+                                android:text="Followers"
                                 android:textColor="@color/colorWhite"
-                                android:text="Following"
                                 android:textSize="20sp" />
 
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:paddingTop="10dp"
-                                android:text="360"
+                                android:text="1205"
                                 android:textColor="@color/startblue"
                                 android:textSize="20sp"
                                 android:textStyle="bold" />
@@ -147,38 +170,20 @@
                     <ImageView
                         android:layout_width="36dp"
                         android:layout_height="36dp"
-                        android:src="@drawable/ic_notifications_black_24dp" />
+                        android:src="@drawable/ic_action_gmail" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_vertical"
                         android:paddingLeft="20dp"
+                        android:id="@+id/tv_p_mail"
                         android:text="Wiliam@gmail.com"
                         android:textStyle="bold" />
                 </LinearLayout>
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="25dp"
-                    android:orientation="horizontal"
-                    android:paddingLeft="25dp">
 
-                    <ImageView
-                        android:layout_width="36dp"
-                        android:layout_height="36dp"
-                        android:src="@drawable/ic_notifications_black_24dp" />
 
-                    <TextView
-                        android:layout_width="wrap_content"
-
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center_vertical"
-                        android:paddingLeft="20dp"
-                        android:text="+266 225 225"
-                        android:textStyle="bold" />
-                </LinearLayout>
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -190,33 +195,12 @@
                     <ImageView
                         android:layout_width="36dp"
                         android:layout_height="36dp"
-                        android:src="@drawable/ic_notifications_black_24dp" />
+                        android:src="@drawable/ic_location_on" />
 
                     <TextView
                         android:layout_width="wrap_content"
 
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center_vertical"
-                        android:paddingLeft="20dp"
-                        android:text="+905511189360"
-                        android:textStyle="bold" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="25dp"
-                    android:orientation="horizontal"
-                    android:paddingLeft="25dp">
-
-                    <ImageView
-                        android:layout_width="36dp"
-                        android:layout_height="36dp"
-                        android:src="@drawable/ic_notifications_black_24dp" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-
+                        android:id="@+id/tv_p_loc"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_vertical"
                         android:paddingLeft="20dp"
@@ -225,14 +209,6 @@
                 </LinearLayout>
             </LinearLayout>
 
-            <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginTop="35dp"
-                android:background="@drawable/buttonstyle"
-                android:text="Edit"
-                android:textColor="#fff" />
         </LinearLayout>
     </ScrollView>
 

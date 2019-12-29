@@ -28,5 +28,9 @@
     <string name="continue_text">Continue</string>
     <string name="please_select_user_type">Please select User type</string>
     <string name="button">Button</string>
+    <string name="title">Title</string>
+    <string name="company_name">Company Name</string>
+    <string name="enter">Enter</string>
+    <string name="guest">Guest</string>
 
 </resources>

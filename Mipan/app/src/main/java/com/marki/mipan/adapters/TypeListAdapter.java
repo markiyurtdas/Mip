@@ -83,7 +83,7 @@ public class TypeListAdapter extends RecyclerView.Adapter<TypeListAdapter.MyView
         member.setUsername(android_id);
         HashMap<String,Object> myHash = new HashMap<>();
         myHash.put("create_date",System.currentTimeMillis()/1000L);
-        myHash.put("has_username",true);
+        myHash.put("has_username",false);
         myHash.put("type",str);
         myHash.put("username",member.getUsername());
         member.dbRef.child("mip")
@@ -99,6 +99,7 @@ public class TypeListAdapter extends RecyclerView.Adapter<TypeListAdapter.MyView
                 .setValue(System.currentTimeMillis()/1000L);
         mContext.startActivity(new Intent(mContext, Control.class));
 
+        member.setIs_guest(true);
         member.setUsername(android_id);
         member.setHas_username(false);
         member.setType(str);

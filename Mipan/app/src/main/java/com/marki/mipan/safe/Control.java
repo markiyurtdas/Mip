@@ -47,11 +47,15 @@ public class Control extends AppCompatActivity {
 
 
 
+
     Member member = Member.getInstance();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_control);
+        Intent i = getIntent();
+        member.setUsername(i.getStringExtra("username"));
+
         synUser();
 
         startActivity(new Intent(Control.this,FragmentMainActivity.class));
@@ -207,12 +211,15 @@ public class Control extends AppCompatActivity {
                         for (DataSnapshot postSnapShot : dataSnapshot.getChildren()) {
                             Member myj = postSnapShot.getValue(Member.class);
                             memberList.add(myj);
-                            if (member.getUsername().equals(member.getUsername())){
-                                member=myj;
+                            try {
+                                if (member.getUsername().equals(member.getUsername())){
+                                    member=myj;
+                                }
+                            }catch (NullPointerException npExc){
+                                npExc.printStackTrace();
                             }
 
                         }
-                        System.out.println("members" + memberList.toString());
                     }
 
                     @Override
@@ -248,9 +255,9 @@ public class Control extends AppCompatActivity {
                 Model model = response.body();
                 //bind restaurants list with resList
                 restList = model.restaurants;
-                for(int i = 0;i<5;i++)
-                    System.out.println("baba"+restList.get(i).restaurant.name.toString());
-
+                for(int i = 0;i<restList.size();i++) {
+                    System.out.println("baba" + restList.get(i).restaurant.name.toString());
+                }
             }
 
             @Override

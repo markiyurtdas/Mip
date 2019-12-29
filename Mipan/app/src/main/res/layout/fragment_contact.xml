@@ -27,7 +27,12 @@
             android:id="@+id/btn_messages"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Messages" />
+            android:text="Chat With Customer Services" />
+        <Button
+            android:id="@+id/btn_email"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Send Mail to Mosb" />
     </LinearLayout>
 
     <androidx.recyclerview.widget.RecyclerView

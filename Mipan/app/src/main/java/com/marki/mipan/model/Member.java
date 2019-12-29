@@ -19,7 +19,7 @@ public class Member {
     private String username;
     private String type;
     private boolean has_username;
-    private boolean is_guest;
+    private boolean is_guest=true;
     private long mip_coin;
     private long birthdate;
     private String full_name ;
@@ -30,6 +30,40 @@ public class Member {
     private long create_date;
     private List<String> open_date;
     private List<Apply> applies;
+    private List<EventLog> event_user_log;
+
+    @Override
+    public String toString() {
+        return "Member{" +
+                "firebaseDatabase=" + firebaseDatabase +
+                ", dbRef=" + dbRef +
+                ", username='" + username + '\'' +
+                ", type='" + type + '\'' +
+                ", has_username=" + has_username +
+                ", is_guest=" + is_guest +
+                ", mip_coin=" + mip_coin +
+                ", birthdate=" + birthdate +
+                ", full_name='" + full_name + '\'' +
+                ", password='" + password + '\'' +
+                ", email='" + email + '\'' +
+                ", sex='" + sex + '\'' +
+                ", city='" + city + '\'' +
+                ", create_date=" + create_date +
+                ", open_date=" + open_date +
+                ", applies=" + applies +
+                ", event_user_log=" + event_user_log +
+                ", events=" + events +
+                '}';
+    }
+
+    public List<EventLog> getEvent_user_log() {
+        return event_user_log;
+    }
+
+    public void setEvent_user_log(List<EventLog> event_user_log) {
+        this.event_user_log = event_user_log;
+    }
+
     private List<Events> events;
 
     private Member() {
@@ -175,28 +209,6 @@ public class Member {
         this.events = events;
     }
 
-    @Override
-    public String toString() {
-        return "Member{" +
-                "firebaseDatabase=" + firebaseDatabase +
-                ", dbRef=" + dbRef +
-                ", username='" + username + '\'' +
-                ", type='" + type + '\'' +
-                ", has_username=" + has_username +
-                ", is_guest=" + is_guest +
-                ", mip_coin=" + mip_coin +
-                ", birthdate=" + birthdate +
-                ", full_name='" + full_name + '\'' +
-                ", password='" + password + '\'' +
-                ", email='" + email + '\'' +
-                ", sex='" + sex + '\'' +
-                ", city='" + city + '\'' +
-                ", create_date=" + create_date +
-                ", open_date=" + open_date +
-                ", applies=" + applies +
-                ", events=" + events +
-                '}';
-    }
 }
 class Apply{
     private Long job_id;
@@ -213,6 +225,24 @@ class Apply{
     public String toString() {
         return "Apply{" +
                 "job_id=" + job_id +
+                '}';
+    }
+}
+class EventLog{
+    private Long home;
+
+    public Long getHome() {
+        return home;
+    }
+
+    public void setHome(Long home) {
+        this.home = home;
+    }
+
+    @Override
+    public String toString() {
+        return "EventLog{" +
+                "home=" + home +
                 '}';
     }
 }

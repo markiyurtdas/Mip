@@ -17,17 +17,22 @@ import com.marki.mipan.Constants;
 import com.marki.mipan.R;
 import com.marki.mipan.activities.JobDetail;
 import com.marki.mipan.model.JobAds;
+import com.marki.mipan.ui.HomeFragment;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
-public class JobFragmentAdapter extends RecyclerView.Adapter<JobFragmentAdapter.MyViewHolder>  {
+public class JobFragmentAdapter2 extends RecyclerView.Adapter<JobFragmentAdapter2.MyViewHolder>  {
     public Context mContext;
     public ArrayList<JobAds> mDataset;
 
+    @Override
+    public void onAttachedToRecyclerView(@NonNull RecyclerView recyclerView) {
+        super.onAttachedToRecyclerView(recyclerView);
 
+    }
 
-    public static class MyViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
+    public static class MyViewHolder extends RecyclerView.ViewHolder {
         // each data item is just a string in this case
 
         public TextView tvTitle;
@@ -43,16 +48,13 @@ public class JobFragmentAdapter extends RecyclerView.Adapter<JobFragmentAdapter.
             tvCompany = v.findViewById(R.id.job_company);
             imageView = v.findViewById(R.id.img_job);
             tvDescription = v.findViewById(R.id.job_desc);
-            v.setOnClickListener(this);
+
 
         }
 
-        @Override
-        public void onClick(View view) {
 
-        }
     }
-    public JobFragmentAdapter(ArrayList<JobAds> myDataset, Context mContext) {
+    public JobFragmentAdapter2(ArrayList<JobAds> myDataset, Context mContext) {
         this.mDataset = myDataset;
         this.mContext = mContext;
     }
@@ -69,15 +71,7 @@ public class JobFragmentAdapter extends RecyclerView.Adapter<JobFragmentAdapter.
     public void onBindViewHolder(@NonNull final MyViewHolder holder, final int position) {
         JobAds e = mDataset.get(position);
 
-        holder.itemView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(mContext,JobDetail.class);
-                intent.putExtra("pos",position);
-                mContext.startActivity(intent);
-                Toast.makeText(mContext, "pos:"+position, Toast.LENGTH_SHORT).show();
-            }
-        });
+
         holder.tvTitle.setText(e.getTitle());
         holder.tvDescription.setText(e.getDescription());
         holder.tvCompany.setText(e.getCompany());
