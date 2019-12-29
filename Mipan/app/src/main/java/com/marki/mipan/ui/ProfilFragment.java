@@ -60,6 +60,41 @@ public class ProfilFragment extends Fragment {
                 }
             });
         }
+
+
+        member.dbRef.child("mip")
+                .child("member")
+                .addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                        for (DataSnapshot postSnapShot : dataSnapshot.getChildren()) {
+                            Member myj = postSnapShot.getValue(Member.class);
+                            try {
+                                if (member.getUsername().equals(myj.getUsername())){
+
+
+
+
+                                    root.findViewById(R.id.scrollView2).setVisibility(View.VISIBLE);
+                                    tvFullname.setText(myj.getFull_name());
+                                    tvMipCoin.setText(String.valueOf(myj.getMip_coin()));
+                                    tvMail.setText(myj.getEmail());
+                                    tvLocation.setText(myj.getCity());
+
+
+                                }
+                            }catch (NullPointerException npExc){
+                                npExc.printStackTrace();
+                            }
+
+                        }
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                    }
+                });
         return root;
     }
 
