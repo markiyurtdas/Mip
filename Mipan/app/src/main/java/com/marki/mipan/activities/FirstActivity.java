@@ -50,6 +50,7 @@ public class FirstActivity extends AppCompatActivity {
         typeList.add("Stajyer");
         typeList.add("Öğrenci");
         typeList.add("Mühendis");
+        typeList.add("Manager");
 
         updateRecycle(typeList);
 

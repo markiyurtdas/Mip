@@ -15,6 +15,7 @@ import com.marki.mipan.manage.CreateEvent;
 import com.marki.mipan.manage.JobCreate;
 import com.marki.mipan.manage.SurveyCreate;
 import com.marki.mipan.model.JobAds;
+import com.marki.mipan.ui.ContactFragment;
 
 import java.util.ArrayList;
 
@@ -68,6 +69,10 @@ public class ManageAdapter extends RecyclerView.Adapter<ManageAdapter.MyViewHold
                     mContext.startActivity(i);
                 }else if(position==2){
                     Intent i = new Intent(mContext, JobCreate.class);
+                    i.putExtra("send",position);
+                    mContext.startActivity(i);
+                }else if(position==3){
+                    Intent i = new Intent(mContext, ContactFragment.class);
                     i.putExtra("send",position);
                     mContext.startActivity(i);
                 }

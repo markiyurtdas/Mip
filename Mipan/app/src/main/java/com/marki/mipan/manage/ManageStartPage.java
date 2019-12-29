@@ -50,6 +50,7 @@ public class ManageStartPage extends AppCompatActivity {
         typeList.add("Event Oluştur");
         typeList.add("Anket Oluştur");
         typeList.add("İş İlanı");
+        typeList.add("Message");
 
         updateRecycle(typeList);
 

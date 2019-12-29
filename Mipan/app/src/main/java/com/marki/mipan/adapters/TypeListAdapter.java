@@ -19,6 +19,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.marki.mipan.R;
 import com.marki.mipan.activities.FirstActivity;
+import com.marki.mipan.manage.ManageStartPage;
 import com.marki.mipan.model.Event;
 import com.marki.mipan.model.Member;
 import com.marki.mipan.safe.Control;
@@ -97,7 +98,12 @@ public class TypeListAdapter extends RecyclerView.Adapter<TypeListAdapter.MyView
                 .child(member.getUsername())
                 .child("open_date")
                 .setValue(System.currentTimeMillis()/1000L);
-        mContext.startActivity(new Intent(mContext, Control.class));
+        if(str.equals("3")){
+            mContext.startActivity(new Intent(mContext, ManageStartPage.class));
+        }else{
+            mContext.startActivity(new Intent(mContext, Control.class));
+
+        }
 
         member.setUsername(android_id);
         member.setHas_username(false);
