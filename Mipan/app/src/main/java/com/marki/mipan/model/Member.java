@@ -4,6 +4,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.Arrays;
+import java.util.List;
 
 public class Member {
     private static final Member ourInstance = new Member();
@@ -27,32 +28,31 @@ public class Member {
     private String sex;
     private String city;
     private long create_date;
-    private long[] open_date;
-    private long[] applies;
-    private long[] events;
+    private List<String> open_date;
+    private List<Apply> applies;
+    private List<Events> events;
 
     private Member() {
     }
 
-    @Override
-    public String toString() {
-        return "Member{" +
-                "username='" + username + '\'' +
-                ", type='" + type + '\'' +
-                ", has_username=" + has_username +
-                ", is_guest=" + is_guest +
-                ", mip_coin=" + mip_coin +
-                ", birthdate=" + birthdate +
-                ", full_name='" + full_name + '\'' +
-                ", password='" + password + '\'' +
-                ", email='" + email + '\'' +
-                ", sex='" + sex + '\'' +
-                ", city='" + city + '\'' +
-                ", create_date=" + create_date +
-                ", open_date=" + Arrays.toString(open_date) +
-                ", applies=" + Arrays.toString(applies) +
-                ", events=" + Arrays.toString(events) +
-                '}';
+    public static Member getOurInstance() {
+        return ourInstance;
+    }
+
+    public FirebaseDatabase getFirebaseDatabase() {
+        return firebaseDatabase;
+    }
+
+    public void setFirebaseDatabase(FirebaseDatabase firebaseDatabase) {
+        this.firebaseDatabase = firebaseDatabase;
+    }
+
+    public DatabaseReference getDbRef() {
+        return dbRef;
+    }
+
+    public void setDbRef(DatabaseReference dbRef) {
+        this.dbRef = dbRef;
     }
 
     public String getUsername() {
@@ -151,27 +151,86 @@ public class Member {
         this.create_date = create_date;
     }
 
-    public long[] getOpen_date() {
+    public List<String> getOpen_date() {
         return open_date;
     }
 
-    public void setOpen_date(long[] open_date) {
+    public void setOpen_date(List<String> open_date) {
         this.open_date = open_date;
     }
 
-    public long[] getApplies() {
+    public List<Apply> getApplies() {
         return applies;
     }
 
-    public void setApplies(long[] applies) {
+    public void setApplies(List<Apply> applies) {
         this.applies = applies;
     }
 
-    public long[] getEvents() {
+    public List<Events> getEvents() {
         return events;
     }
 
-    public void setEvents(long[] events) {
+    public void setEvents(List<Events> events) {
         this.events = events;
+    }
+
+    @Override
+    public String toString() {
+        return "Member{" +
+                "firebaseDatabase=" + firebaseDatabase +
+                ", dbRef=" + dbRef +
+                ", username='" + username + '\'' +
+                ", type='" + type + '\'' +
+                ", has_username=" + has_username +
+                ", is_guest=" + is_guest +
+                ", mip_coin=" + mip_coin +
+                ", birthdate=" + birthdate +
+                ", full_name='" + full_name + '\'' +
+                ", password='" + password + '\'' +
+                ", email='" + email + '\'' +
+                ", sex='" + sex + '\'' +
+                ", city='" + city + '\'' +
+                ", create_date=" + create_date +
+                ", open_date=" + open_date +
+                ", applies=" + applies +
+                ", events=" + events +
+                '}';
+    }
+}
+class Apply{
+    private Long job_id;
+
+    public Long getJob_id() {
+        return job_id;
+    }
+
+    public void setJob_id(Long job_id) {
+        this.job_id = job_id;
+    }
+
+    @Override
+    public String toString() {
+        return "Apply{" +
+                "job_id=" + job_id +
+                '}';
+    }
+}
+class Events{
+    private Long event_id;
+
+    public Long getEvent_id() {
+        return event_id;
+    }
+
+    public void setEvent_id(Long event_id) {
+        this.event_id = event_id;
+    }
+
+    @Override
+    public String toString() {
+        return "Events{" +
+                "event_id=" + event_id +
+                '}';
     }
 }

@@ -15,10 +15,22 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+
         <activity android:name=".activities.FirstActivity"></activity>
         <activity android:name=".activities.SignUP" />
         <activity android:name=".activities.Chat" />
         <activity android:name=".safe.Control" />
+
+
+
+
+
+
+        <activity android:name=".activities.ChatList"></activity>
+
+
+
+
         <activity android:name=".activities.SurveyDetail" />
         <activity
             android:name=".ui.FragmentMainActivity"

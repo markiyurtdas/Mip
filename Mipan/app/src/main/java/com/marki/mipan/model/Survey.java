@@ -3,6 +3,50 @@ package com.marki.mipan.model;
 import java.util.List;
 
 public class Survey {
+
+    private Long survey_id;
+    private Long created_date;
+    private String creator_username;
+    private String description;
+    private Long end_date;
+    private Long mip_coin;
+    private List<Question> questions;
+    private String title;
+    private List<List<String>> answers;
+    private List<List<String>> choises;
+
+    @Override
+    public String toString() {
+        return "Survey{" +
+                "survey_id=" + survey_id +
+                ", created_date=" + created_date +
+                ", creator_username='" + creator_username + '\'' +
+                ", description='" + description + '\'' +
+                ", end_date=" + end_date +
+                ", mip_coin=" + mip_coin +
+                ", questions=" + questions +
+                ", title='" + title + '\'' +
+                ", answers=" + answers +
+                ", choises=" + choises +
+                '}';
+    }
+
+    public List<List<String>> getChoises() {
+        return choises;
+    }
+
+    public void setChoises(List<List<String>> choises) {
+        this.choises = choises;
+    }
+
+    public Long getSurvey_id() {
+        return survey_id;
+    }
+
+    public void setSurvey_id(Long survey_id) {
+        this.survey_id = survey_id;
+    }
+
     public Long getCreated_date() {
         return created_date;
     }
@@ -59,21 +103,32 @@ public class Survey {
         this.title = title;
     }
 
-
-    public Long getSurvey_id() {
-        return survey_id;
+    public List<List<String>> getAnswers() {
+        return answers;
     }
 
-    public void setSurvey_id(Long survey_id) {
-        this.survey_id = survey_id;
+    public void setAnswers(List<List<String>> answers) {
+        this.answers = answers;
     }
 
-    private Long survey_id;
-    private Long created_date;
-    private String creator_username;
+}
+
+class Question {
     private String description;
-    private Long end_date;
-    private Long mip_coin;
-    private List<Question> questions;
-    private String title;
+
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    @Override
+    public String toString() {
+        return "Question{" +
+                ", description='" + description + '\'' +
+                '}';
+    }
 }

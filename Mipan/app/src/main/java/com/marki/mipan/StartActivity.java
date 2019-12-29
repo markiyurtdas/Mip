@@ -14,26 +14,12 @@ import com.github.loadingview.LoadingDialog;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.analytics.FirebaseAnalytics;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.iid.FirebaseInstanceId;
 import com.google.firebase.iid.InstanceIdResult;
-import com.marki.mipan.activities.Chat;
 import com.marki.mipan.activities.FirstActivity;
 import com.marki.mipan.model.Member;
-import com.marki.mipan.safe.Control;
-import com.marki.mipan.ui.FragmentMainActivity;
-
-import java.io.BufferedReader;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.OutputStreamWriter;
-import java.io.Writer;
 
 public class StartActivity extends AppCompatActivity {
     private FirebaseAnalytics mFirebaseAnalytics;
@@ -85,20 +71,11 @@ public class StartActivity extends AppCompatActivity {
 
 
 
-
+//TODO
             startActivity(new Intent(StartActivity.this,FirstActivity.class));
         }
 
 
 
-    private void setupUser() {
-    //TODO getUSer from firebase
-
-    }
-
-
-
-
-
-}
+ }
 

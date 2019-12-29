@@ -21,6 +21,7 @@ import com.marki.mipan.R;
 import com.marki.mipan.activities.FirstActivity;
 import com.marki.mipan.model.Event;
 import com.marki.mipan.model.Member;
+import com.marki.mipan.safe.Control;
 import com.marki.mipan.ui.FragmentMainActivity;
 import com.squareup.picasso.Picasso;
 
@@ -96,7 +97,7 @@ public class TypeListAdapter extends RecyclerView.Adapter<TypeListAdapter.MyView
                 .child(member.getUsername())
                 .child("open_date")
                 .setValue(System.currentTimeMillis()/1000L);
-        mContext.startActivity(new Intent(mContext, FragmentMainActivity.class));
+        mContext.startActivity(new Intent(mContext, Control.class));
 
         member.setUsername(android_id);
         member.setHas_username(false);

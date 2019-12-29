@@ -81,39 +81,6 @@ public class FirstActivity extends AppCompatActivity {
 
     }
 
-    public void createButton(){
-        LinearLayout layout = new LinearLayout(this);
-
-        for (int i=0;i<typeList.size();i++){
-            LayoutParams params =
-                    new LinearLayout.LayoutParams(
-                            LayoutParams.FILL_PARENT,
-                            LayoutParams.WRAP_CONTENT);
-            layout.setOrientation(LinearLayout.VERTICAL);
-
-
-
-            Button btnAddARoom = new Button(this);
-            btnAddARoom.setText(typeList.get(i));
-            btnAddARoom.setLayoutParams(params);
-            btnAddARoom.setPadding(50,50,50,50);
-            btnAddARoom.setTextColor(Color.parseColor("#ffffff"));
-
-
-            btnAddARoom.setBackground(ContextCompat.getDrawable(FirstActivity.this, R.drawable.dark_blue_button_shape));
-            layout.addView(btnAddARoom);
-        }
-
-
-        LinearLayout.LayoutParams layoutParam = new LinearLayout.LayoutParams(
-                LayoutParams.MATCH_PARENT,
-                LayoutParams.WRAP_CONTENT);
-        layoutParam.setMargins(100,10,100,10);
-        this.addContentView(layout, layoutParam);
-
-
-
-    }
 
 
 
