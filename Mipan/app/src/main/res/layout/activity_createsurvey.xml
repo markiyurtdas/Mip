@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <TextView
+        android:id="@+id/tv_answersurvey"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:gravity="center|start"
+        android:textSize="16sp"
+        android:layout_marginStart="10dp"
+        android:text="Cevap"/>
+    <TextView
+        android:id="@+id/tv_choisessurvey"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:gravity="center|start"
+        android:textSize="16sp"
+        android:layout_marginStart="10dp"
+        android:text="Seçimi"/>
+    <TextView
+        android:id="@+id/tv_startdatesurvey"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:gravity="center|start"
+        android:textSize="16sp"
+        android:layout_marginStart="10dp"
+        android:text="Başlangıç Tarihi "/>
+    <TextView
+        android:id="@+id/tv_enddatesurvey"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:gravity="center|start"
+        android:textSize="16sp"
+        android:layout_marginStart="10dp"
+        android:text="Bitiş tarihi "/>
+    <TextView
+        android:id="@+id/tv_descriptionsurvey"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:gravity="center|start"
+        android:textSize="16sp"
+        android:layout_marginStart="10dp"
+        android:text="Açıklama "/>
+    <TextView
+        android:id="@+id/tv_mipcoinsurvey"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:gravity="center|start"
+        android:textSize="16sp"
+        android:layout_marginStart="10dp"
+        android:text="Mip Coin "/>
+    <TextView
+        android:id="@+id/tv_titlesurvey"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:gravity="center|start"
+        android:textSize="16sp"
+        android:layout_marginStart="10dp"
+        android:text="Başlık "/>
+    <TextView
+        android:id="@+id/tv_questionsurvey"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:gravity="center|start"
+        android:textSize="16sp"
+        android:layout_marginStart="10dp"
+        android:text="Soru "/>
+
+</LinearLayout>

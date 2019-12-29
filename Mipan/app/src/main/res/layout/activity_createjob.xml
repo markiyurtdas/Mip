@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/tv_companyjob"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:gravity="center|start"
+        android:textSize="16sp"
+        android:layout_marginStart="10dp"
+        android:text="Şirket ismi"/>
+    <TextView
+        android:id="@+id/tv_companymailjob"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:gravity="center|start"
+        android:textSize="16sp"
+        android:layout_marginStart="10dp"
+        android:text="Mail Adresi:"/>
+    <TextView
+        android:id="@+id/tv_startdate"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:gravity="center|start"
+        android:textSize="16sp"
+        android:layout_marginStart="10dp"
+        android:text="Başlangıç Tarihi "/>
+    <TextView
+        android:id="@+id/tv_enddatejob"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:gravity="center|start"
+        android:textSize="16sp"
+        android:layout_marginStart="10dp"
+        android:text="Bitiş tarihi "/>
+    <TextView
+        android:id="@+id/tv_photojob"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:gravity="center|start"
+        android:textSize="16sp"
+        android:layout_marginStart="10dp"
+        android:text="PhotoUrl "/>
+    <TextView
+        android:id="@+id/tv_titlejob"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:gravity="center|start"
+        android:textSize="16sp"
+        android:layout_marginStart="10dp"
+        android:text="Title "/>
+    <TextView
+        android:id="@+id/tv_typejob"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:gravity="center|start"
+        android:textSize="16sp"
+        android:layout_marginStart="10dp"
+        android:text="Çalışma Tipi "/>
+
+
+</LinearLayout>

@@ -20,6 +20,7 @@ import com.google.firebase.iid.FirebaseInstanceId;
 import com.google.firebase.iid.InstanceIdResult;
 import com.marki.mipan.activities.FirstActivity;
 import com.marki.mipan.model.Member;
+import com.marki.mipan.manage.SurveyCreate;
 
 public class StartActivity extends AppCompatActivity {
     private FirebaseAnalytics mFirebaseAnalytics;
@@ -71,7 +72,7 @@ public class StartActivity extends AppCompatActivity {
 
 
 
-//TODO
+
             startActivity(new Intent(StartActivity.this,FirstActivity.class));
         }
 

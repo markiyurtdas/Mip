@@ -20,6 +20,10 @@
         <activity android:name=".activities.SignUP" />
         <activity android:name=".activities.Chat" />
         <activity android:name=".safe.Control" />
+        <activity android:name=".manage.ManageStartPage" />
+        <activity android:name=".manage.CreateEvent" />
+        <activity android:name=".manage.JobCreate" />
+        <activity android:name=".manage.SurveyCreate" />
 
 
 
