@@ -1,5 +1,6 @@
 package com.marki.mipan.activities;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.Gravity;
@@ -41,7 +42,7 @@ public class Chat extends AppCompatActivity {
     EditText messageArea;
     ScrollView scrollView;
     Member member=Member.getInstance();
-    String sentTo="mehmet";
+    String sentTo="";
     String sender= "ahmet";
     Boolean first =false;
     public  ArrayList<Message> MessageList = new ArrayList<>();
@@ -50,6 +51,9 @@ public class Chat extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_chat);
+        Intent i = getIntent();
+
+        sentTo=i.getStringExtra("sender");
         getReceivedMessage();
         getSentToMessage();
 
@@ -60,7 +64,7 @@ public class Chat extends AppCompatActivity {
         messageArea = (EditText) findViewById(R.id.messageArea);
         scrollView = (ScrollView) findViewById(R.id.scrollView);
 
-
+        getSupportActionBar().setTitle(sentTo);
         getAllSendMessages();
 
         sendButton.setOnClickListener(new View.OnClickListener() {

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout  xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_margin="8dp"
+    app:cardCornerRadius="8dp"
+    android:orientation="vertical"
+    android:background="@color/colorPrimaryLigth"
+    android:gravity="center">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
+        android:gravity="center">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.1"
+            android:orientation="vertical">
+            <TextView
+                android:id="@+id/tv_titlejob"
+                android:layout_width="match_parent"
+                android:layout_height="80dp"
+                android:gravity="center|start"
+                android:textSize="16sp"
+                android:layout_marginStart="10dp"
+                android:text="Örnek kullanıcı full adı"/>
+            <TextView
+                android:id="@+id/tv_description"
+                android:layout_width="match_parent"
+                android:layout_height="80dp"
+                android:gravity="center|start"
+                android:textSize="16sp"
+                android:layout_marginStart="10dp"
+                android:text="Örnek kullanıcı full adı"/>
+
+        </LinearLayout>
+    </LinearLayout>
+
+
+
+</LinearLayout>

@@ -1,16 +1,20 @@
 package com.marki.mipan.activities;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.os.PersistableBundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.ValueEventListener;
 import com.marki.mipan.R;
+import com.marki.mipan.adapters.ChatListAdapter;
 import com.marki.mipan.model.Member;
 import com.marki.mipan.model.Message;
 
@@ -20,6 +24,9 @@ import java.util.Set;
 
 public class ChatList extends AppCompatActivity {
 
+    RecyclerView recyclerView;
+    LinearLayoutManager linearLayoutManager;
+    ChatListAdapter mAdapter;
     Member member=Member.getInstance();
     String sentTo="mehmet";
     String sender= "ahmet";
@@ -28,6 +35,8 @@ public class ChatList extends AppCompatActivity {
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_chatlist);
+
+        recyclerView = findViewById(R.id.rec_chatList);
         getUserMessage();
 
 
@@ -74,6 +83,7 @@ public class ChatList extends AppCompatActivity {
                                 }
                             }
                             System.out.println(msgList);
+                            updateRecycle(msgList);
                         }
 
                     }
@@ -82,5 +92,15 @@ public class ChatList extends AppCompatActivity {
 
                     }
                 });
+    }
+
+    public void updateRecycle(ArrayList<String> list){
+        recyclerView.setHasFixedSize(true);
+
+        linearLayoutManager = new LinearLayoutManager(ChatList.this,LinearLayoutManager.VERTICAL,false);
+        recyclerView.setLayoutManager(linearLayoutManager);
+
+        mAdapter = new ChatListAdapter(list,ChatList.this);
+        recyclerView.setAdapter(mAdapter);
     }
 }
