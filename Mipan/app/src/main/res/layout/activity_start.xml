@@ -23,6 +23,7 @@
             android:layout_height="wrap_content"
             android:background="@color/colorBlack"
             android:hint="Username"
+            android:text="arzutek1"
             android:textColorHint="@color/colorWhite"
             android:inputType="text"
             android:textColor="@color/colorWhite" />
@@ -32,8 +33,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@color/colorBlack"
-
-
+            android:text="arzu123"
             android:textColorHint="@color/colorWhite"
             android:inputType="textPassword"
             android:textColor="@color/colorWhite" />
@@ -55,6 +55,11 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/guest" />
+        <Button
+            android:id="@+id/btn_manage"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/manage" />
 
 
     </LinearLayout>

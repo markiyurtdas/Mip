@@ -33,9 +33,12 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.ValueEventListener;
 import com.marki.mipan.Constants;
 import com.marki.mipan.R;
+import com.marki.mipan.activities.ChatActivity;
 import com.marki.mipan.activities.JobDetail;
 import com.marki.mipan.adapters.ChatListAdapter;
+import com.marki.mipan.adapters.ChatListAdapter2;
 import com.marki.mipan.model.Member;
+import com.marki.mipan.safe.Control;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -43,12 +46,9 @@ import java.util.List;
 import java.util.Set;
 
 public class ContactFragment extends Fragment {
-    RecyclerView recyclerView;
-    LinearLayoutManager linearLayoutManager;
-    ChatListAdapter mAdapter;
+
     Member member=Member.getInstance();
     String sender;
-    ArrayList<String> msgList = new ArrayList<>();
     private Spinner spinnerCall;
     private TextView tv_number,tv_number1,tv_number2;
     Button btnCall,btnMessages;
@@ -61,14 +61,17 @@ public class ContactFragment extends Fragment {
         View root = inflater.inflate(R.layout.fragment_contact, container, false);
 
         mContext=root.getContext();
-        recyclerView = root.findViewById(R.id.rec_message_members);
-        if (!member.isIs_guest()){
 
-            getUserMessage();
-        }
         spinnerCall=root.findViewById(R.id.spinner_emergency_number);
         btnCall=root.findViewById(R.id.btn_call);
         btnMessages=root.findViewById(R.id.btn_messages);
+
+        btnMessages.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(mContext, ChatActivity.class));
+            }
+        });
 
         List<String> list=new ArrayList<>();
         for (int i: Constants.emergencyNumbers){
@@ -121,67 +124,8 @@ public class ContactFragment extends Fragment {
         return root;
     }
 
-    public void getUserMessage(){
 
-        member.dbRef.child("message").child(member.getUsername())
-                .child("sendTo")
-                .addListenerForSingleValueEvent(new ValueEventListener() {
-                    @Override
-                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                        if (dataSnapshot.hasChildren()){
-                            HashMap<String,String> myHash = (HashMap<String, String>) dataSnapshot.getValue();
-                            Set<String> setList = myHash.keySet();
-                            for (String s:setList){
-                                msgList.add(s);
-                            }
-                            getAllRecMessages();
-                        }
 
-                    }
-
-                    @Override
-                    public void onCancelled(@NonNull DatabaseError databaseError) {
-
-                    }
-                });
-    }
-
-    public void getAllRecMessages(){
-        member.dbRef.child("message")
-                .child(sender)
-                .child("receive")
-                .addListenerForSingleValueEvent(new ValueEventListener() {
-                    @Override
-                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                        if (dataSnapshot.hasChildren()){
-                            HashMap<String,Object> myHash = (HashMap<String, Object>) dataSnapshot.getValue();
-                            Set<String> setList = myHash.keySet();
-                            for (String s:setList){
-                                if(!(msgList.contains(s))){
-                                    msgList.add(s);
-                                }
-                            }
-                            System.out.println(msgList);
-                            updateRecycle(msgList);
-                        }
-
-                    }
-                    @Override
-                    public void onCancelled(@NonNull DatabaseError databaseError) {
-
-                    }
-                });
-    }
-
-    public void updateRecycle(ArrayList<String> list){
-        recyclerView.setHasFixedSize(true);
-
-        linearLayoutManager = new LinearLayoutManager(mContext,LinearLayoutManager.VERTICAL,false);
-        recyclerView.setLayoutManager(linearLayoutManager);
-
-        mAdapter = new ChatListAdapter(list,mContext);
-        recyclerView.setAdapter(mAdapter);
-    }
 
 
 

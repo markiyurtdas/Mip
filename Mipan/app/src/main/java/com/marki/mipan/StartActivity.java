@@ -29,7 +29,6 @@ import com.marki.mipan.activities.FirstActivity;
 import com.marki.mipan.activities.SignUP;
 import com.marki.mipan.model.Member;
 import com.marki.mipan.safe.Control;
-
 import java.util.HashMap;
 
 public class StartActivity extends AppCompatActivity {
@@ -39,6 +38,7 @@ public class StartActivity extends AppCompatActivity {
     Button btnSignUp;
     Button btnEnter;
     Button btnGuest;
+    Button btnManage;
     EditText etUsername;
     EditText etPassword;
 
@@ -89,17 +89,25 @@ public class StartActivity extends AppCompatActivity {
                 });
 
 
-
         }
 
     private void setupUI() {
         btnEnter = findViewById(R.id.btn_enter);
         btnSignUp = findViewById(R.id.btn_signup);
         btnGuest = findViewById(R.id.btn_guest);
+        btnManage = findViewById(R.id.btn_manage);
 
         etUsername = findViewById(R.id.et_start_username);
         etPassword = findViewById(R.id.et_start_password);
 
+        btnManage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(StartActivity.this,Control.class);
+                intent.putExtra("posi",3);
+                startActivity(intent);
+            }
+        });
 
         btnEnter.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -119,6 +127,7 @@ public class StartActivity extends AppCompatActivity {
                                         if (etPassword.getText().toString().equals(mTemp.get("password").toString())){
                                             Intent intent = new Intent(StartActivity.this, Control.class);
                                             intent.putExtra("username",etUsername.getText().toString());
+                                            member.setIs_guest(false);
                                             startActivity(intent);
                                         }else {
                                             Toast.makeText(StartActivity.this, "Parola hatalı", Toast.LENGTH_SHORT).show();

@@ -32,5 +32,6 @@
     <string name="company_name">Company Name</string>
     <string name="enter">Enter</string>
     <string name="guest">Guest</string>
+    <string name="manage">Manage</string>
 
 </resources>

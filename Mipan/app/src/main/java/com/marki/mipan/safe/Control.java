@@ -12,7 +12,9 @@ import com.marki.mipan.Interface.JsonPlaceHoldeApi;
 import com.marki.mipan.ModelRest.Model;
 import com.marki.mipan.ModelRest.Restaurant;
 import com.marki.mipan.R;
+import com.marki.mipan.StartActivity;
 import com.marki.mipan.activities.Chat;
+import com.marki.mipan.manage.ManageStartPage;
 import com.marki.mipan.model.AnswerList;
 import com.marki.mipan.model.Applies;
 import com.marki.mipan.model.Company;
@@ -41,7 +43,7 @@ public class Control extends AppCompatActivity {
     public static ArrayList<Survey> surveyList = new ArrayList<>();
     public static ArrayList<Member> memberList = new ArrayList<>();
     public static ArrayList<String> messageUsers = new ArrayList<>();
-    public static ArrayList<FoodMenuWeek> foodMenuList = new ArrayList<>();
+    public static ArrayList<String> foodMenuList = new ArrayList<>();
     private static List<Restaurant> restList;
 
 
@@ -55,10 +57,15 @@ public class Control extends AppCompatActivity {
         setContentView(R.layout.activity_control);
         Intent i = getIntent();
         member.setUsername(i.getStringExtra("username"));
+        int isMnager = i.getIntExtra("posi",-1);
 
         synUser();
 
-        startActivity(new Intent(Control.this,FragmentMainActivity.class));
+        if (isMnager==3){
+            startActivity(new Intent(Control.this, ManageStartPage.class));
+        }else {
+            startActivity(new Intent(Control.this,FragmentMainActivity.class));
+        }
     }
 
     private void synUser() {
@@ -74,13 +81,14 @@ public class Control extends AppCompatActivity {
 
     public void getFoodMenu(){
         member.dbRef.child("mip")
-                .child("food_menu_week")
+                .child("food_list")
+                .child("menu")
+                .child("yemek_adi")
                 .addValueEventListener(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                         for (DataSnapshot postSnapShot : dataSnapshot.getChildren()) {
-                            FoodMenuWeek myj = postSnapShot.getValue(FoodMenuWeek.class);
-                            foodMenuList.add(myj);
+                            foodMenuList.add(postSnapShot.getValue().toString());
                         }
                         System.out.println("bbc" + foodMenuList.toString());
                     }
@@ -105,7 +113,6 @@ public class Control extends AppCompatActivity {
                         for (DataSnapshot postSnapShot : dataSnapshot.getChildren()) {
                             Event myj = postSnapShot.getValue(Event.class);
                             eventList.add(myj);
-                            System.out.println("bbc" + eventList.toString());
                         }
                     }
 

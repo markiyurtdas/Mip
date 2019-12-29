@@ -23,8 +23,10 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.ValueEventListener;
 import com.marki.mipan.R;
 import com.marki.mipan.adapters.EventFragmentAdapter2;
+import com.marki.mipan.adapters.FoodListAdapter;
 import com.marki.mipan.adapters.JobFragmentAdapter2;
 import com.marki.mipan.model.Event;
+import com.marki.mipan.model.FoodMenuWeek;
 import com.marki.mipan.model.JobAds;
 import com.marki.mipan.model.Member;
 import com.marki.mipan.safe.Control;
@@ -36,33 +38,37 @@ import java.util.List;
 public class HomeFragment extends Fragment {
 
     Member member = Member.getInstance();
-    Context mComtext ;
 
     RecyclerView recyclerViewEvent;
     RecyclerView recyclerViewHome;
+    RecyclerView recyclerViewFood;
     LinearLayoutManager linearLayoutManagerEvent;
     LinearLayoutManager linearLayoutManagerHome;
+    LinearLayoutManager linearLayoutManagerFood;
     EventFragmentAdapter2 mAdapterEvent;
     JobFragmentAdapter2 mAdapterHome;
+    FoodListAdapter mAdapterFood;
     Context mContext;
 
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         View root = inflater.inflate(R.layout.fragment_home, container, false);
-        mComtext = root.getContext();
 
+        recyclerViewFood = root.findViewById(R.id.rec_yemek);
         recyclerViewEvent = root.findViewById(R.id.rec_home_horizon);
         recyclerViewHome = root.findViewById(R.id.rec_home_fragment);
 
         updateRecycleEvent(Control.eventList);
         updateRecycleJob(Control.jobList);
+        System.out.println("zxc cc"+Control.foodMenuList.size());
+        updateRecycleFood(Control.foodMenuList);
 
 
 
 
 
-        mComtext = root.getContext();
+        mContext = root.getContext();
         return root;
     }
 
@@ -75,7 +81,7 @@ public class HomeFragment extends Fragment {
 
         // use a linear layout manager
         linearLayoutManagerEvent = new LinearLayoutManager(mContext,
-                LinearLayoutManager.VERTICAL, false);
+                LinearLayoutManager.HORIZONTAL, false);
         recyclerViewEvent.setLayoutManager(linearLayoutManagerEvent);
 
 
@@ -104,6 +110,25 @@ public class HomeFragment extends Fragment {
         // specify an adapter (see also next example)
         mAdapterHome = new JobFragmentAdapter2(list,mContext);
         recyclerViewHome.setAdapter(mAdapterHome);
+
+    } private void updateRecycleFood(ArrayList<String> list) {
+
+        // use this setting to improve performance if you know that changes
+        // in content do not change the layout size of the RecyclerView
+        recyclerViewFood.setHasFixedSize(true);
+
+
+        // use a linear layout manager
+        linearLayoutManagerFood = new LinearLayoutManager(mContext,
+                LinearLayoutManager.HORIZONTAL, false);
+        recyclerViewFood.setLayoutManager(linearLayoutManagerFood);
+
+
+
+
+        // specify an adapter (see also next example)
+        mAdapterFood = new FoodListAdapter(list,mContext);
+        recyclerViewFood.setAdapter(mAdapterHome);
 
     }
 

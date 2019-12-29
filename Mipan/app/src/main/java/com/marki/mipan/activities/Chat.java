@@ -43,7 +43,6 @@ public class Chat extends AppCompatActivity {
     ScrollView scrollView;
     Member member=Member.getInstance();
     String sentTo="";
-    String sender= "ahmet";
     Boolean first =false;
     public  ArrayList<Message> MessageList = new ArrayList<>();
 
@@ -76,10 +75,10 @@ public class Chat extends AppCompatActivity {
 
                 h.put(String.valueOf((System.currentTimeMillis()/1000L)),messageText);
                 member.dbRef.child("message")
-                        .child(sender)
+                        .child(member.getUsername())
                         .child("sendTo")
                         .child(sentTo)
-                        .updateChildren(h);
+                        .setValue(h);
 
                 messageArea.setText("");
             }
@@ -97,7 +96,7 @@ public class Chat extends AppCompatActivity {
 
     public void getReceivedMessage( ){
 
-        member.dbRef.child("message").child(sender).child("receive").addChildEventListener(new ChildEventListener() {
+        member.dbRef.child("message").child(member.getUsername()).child("receive").addChildEventListener(new ChildEventListener() {
             @Override
             public void onChildAdded(DataSnapshot dataSnapshot, String s) {
                 System.out.println("xyz---------childAdded");
@@ -132,7 +131,7 @@ public class Chat extends AppCompatActivity {
     }
 
     public void getAllSendMessages(){
-        member.dbRef.child("message").child(sender)
+        member.dbRef.child("message").child(member.getUsername())
                 .child("sendTo")
                 .child(sentTo)
                 .addListenerForSingleValueEvent(new ValueEventListener() {
@@ -147,6 +146,7 @@ public class Chat extends AppCompatActivity {
                         m.setMessages(myHash.get(s).toString());
                         m.setType(2);
                         MessageList.add(m);
+                        System.out.println("asasdasd0"+MessageList.toString());
                     }
                     getAllRecMessages();
                 }
@@ -161,7 +161,7 @@ public class Chat extends AppCompatActivity {
     }
     public void getAllRecMessages(){
         member.dbRef.child("message")
-                .child(sender)
+                .child(member.getUsername())
                 .child("receive")
                 .child(sentTo)
                 .addListenerForSingleValueEvent(new ValueEventListener() {
@@ -192,7 +192,7 @@ public class Chat extends AppCompatActivity {
 
 
         member.dbRef.child("message")
-                .child(sender)
+                .child(member.getUsername())
                 .child("sendTo").addChildEventListener(new ChildEventListener() {
             @Override
             public void onChildAdded(DataSnapshot dataSnapshot, String s) {
@@ -230,6 +230,7 @@ public class Chat extends AppCompatActivity {
 
 
     public void sendScreen(){
+        System.out.println("------size"+MessageList.size());
         for(int i=MessageList.size()-1;i>=0;i--){
             addMessageBox(MessageList.get(i).getMessages(),MessageList.get(i).getType());
         }

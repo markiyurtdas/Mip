@@ -27,7 +27,7 @@
             android:id="@+id/btn_messages"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Chat With Customer Services" />
+            android:text="Chat With Members" />
         <Button
             android:id="@+id/btn_email"
             android:layout_width="match_parent"
@@ -35,11 +35,6 @@
             android:text="Send Mail to Mosb" />
     </LinearLayout>
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:layout_marginTop="10dp"
-        android:id="@+id/rec_message_members"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

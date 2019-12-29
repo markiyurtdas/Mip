@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+
+    >
+    <EditText
+        android:id="@+id/tv_descriptionevent"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:gravity="center|start"
+        android:textSize="16sp"
+        android:layout_marginStart="10dp"
+        android:inputType="text"
+        android:hint="Açıklama"/>
+    <EditText
+        android:id="@+id/tv_date"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:gravity="center|start"
+        android:inputType="number"
+        android:textSize="16sp"
+        android:layout_marginStart="10dp"
+        android:hint="Örnek kullanıcı full adı"/>
+    <EditText
+        android:id="@+id/tv_mipcoinevent"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:gravity="center|start"
+        android:textSize="16sp"
+        android:inputType="number"
+        android:layout_marginStart="10dp"
+        android:hint="Mip Coin "/>
+    <EditText
+        android:id="@+id/tv_photo_event"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:gravity="center|start"
+        android:textSize="16sp"
+        android:layout_marginStart="10dp"
+        android:hint="PhotoUrl "/>
+    <EditText
+        android:id="@+id/tv_titlevent"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:gravity="center|start"
+        android:textSize="16sp"
+        android:layout_marginStart="10dp"
+        android:hint="Title "/>
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/btnSend"
+        android:text="Gönder"/>
+
+
+</LinearLayout>
