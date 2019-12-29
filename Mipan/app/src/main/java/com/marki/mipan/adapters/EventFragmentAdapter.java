@@ -44,7 +44,7 @@ public class EventFragmentAdapter extends RecyclerView.Adapter<EventFragmentAdap
     public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         // create a new view
         LinearLayout v =  (LinearLayout) LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.fragment_home, parent, false);
+                .inflate(R.layout.item_rec_event, parent, false);
         return new MyViewHolder(v);
     }
 

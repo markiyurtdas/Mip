@@ -14,6 +14,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.marki.mipan.R;
 import com.marki.mipan.adapters.EventFragmentAdapter;
 import com.marki.mipan.model.Event;
+import com.marki.mipan.safe.Control;
 
 import java.util.ArrayList;
 
@@ -25,12 +26,15 @@ public class EventsFragment extends Fragment {
     EventFragmentAdapter mAdapter;
 
 
+
+
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         View root = inflater.inflate(R.layout.fragment_events, container, false);
         mContext = root.getContext();
         recyclerView = root.findViewById(R.id.rec_events);
 
+        updateRecycle(Control.eventList);
 
 
 
@@ -40,7 +44,7 @@ public class EventsFragment extends Fragment {
     }
 
 
-    private void updateRecycle(ArrayList<Event> listOfUrl) {
+    private void updateRecycle(ArrayList<Event> list) {
 
         // use this setting to improve performance if you know that changes
         // in content do not change the layout size of the RecyclerView
@@ -48,14 +52,15 @@ public class EventsFragment extends Fragment {
 
 
         // use a linear layout manager
-        layoutManager = new LinearLayoutManager(mContext, LinearLayoutManager.VERTICAL, false);
+        layoutManager = new LinearLayoutManager(mContext,
+                LinearLayoutManager.VERTICAL, false);
         recyclerView.setLayoutManager(layoutManager);
 
 
 
 
         // specify an adapter (see also next example)
-        mAdapter = new EventFragmentAdapter(listOfUrl,mContext);
+        mAdapter = new EventFragmentAdapter(list,mContext);
         recyclerView.setAdapter(mAdapter);
 
     }

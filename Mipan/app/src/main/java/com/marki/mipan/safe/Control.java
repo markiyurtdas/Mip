@@ -16,8 +16,8 @@ import com.marki.mipan.model.Company;
 import com.marki.mipan.model.Event;
 import com.marki.mipan.model.JobAds;
 import com.marki.mipan.model.Member;
+import com.marki.mipan.ui.FragmentMainActivity;
 import java.util.ArrayList;
-import java.util.List;
 
 public class Control extends AppCompatActivity {
     public static ArrayList<Event> eventList = new ArrayList<>();
@@ -37,7 +37,7 @@ public class Control extends AppCompatActivity {
         getCompanies();
         getAnswerList();
 
-        startActivity(new Intent(Control.this, Chat.class));
+        startActivity(new Intent(Control.this, FragmentMainActivity.class));
     }
     public void getEvents(){
 
